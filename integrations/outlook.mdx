@@ -69,17 +69,17 @@ ApplyTrack's intelligent email engine continuously monitors your Outlook inbox f
 ApplyTrack uses advanced natural language processing to recognize common recruiter email patterns and automatically update your application status:
 
 ### Application Receipt Confirmation
-```
+```text
 From: careers@company.com
 Subject: We've received your application - Product Manager
 
 Thank you for your interest in the Product Manager position.
 Our team is reviewing your application...
-```
+```text
 **Triggers**: Status updated to **Applied**
 
 ### Interview Scheduling Request
-```
+```text
 From: jane.recruiter@company.com
 Subject: Interview Opportunity - Senior Engineer Role
 
@@ -87,37 +87,37 @@ Hi [Name],
 
 I reviewed your application and would like to schedule a call
 to discuss your experience...
-```
+```text
 **Triggers**: Status updated to **Interviewing**
 
 ### Offer Communication
-```
+```text
 From: talent@company.com
 Subject: Offer Letter - Data Scientist Position
 
 Congratulations! We're pleased to extend an offer for the
 Data Scientist role. Please find the offer letter attached...
-```
+```text
 **Triggers**: Status updated to **Offer Extended**
 
 ### Rejection Notification
-```
+```text
 From: no-reply@company.com
 Subject: Application Status Update
 
 Thank you for your interest in our company. After careful
 consideration, we've decided to pursue other candidates...
-```
+```text
 **Triggers**: Status updated to **Rejected**
 
 ### Additional Interview Rounds
-```
+```text
 From: hiring.manager@company.com
 Subject: Next steps - Technical Interview
 
 You did great in the initial screening! Let's schedule
 your technical interview for next week...
-```
+```text
 **Triggers**: Status remains **Interviewing**, adds note about technical round
 
 ## Security & Privacy
