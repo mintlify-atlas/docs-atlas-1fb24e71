@@ -1,0 +1,118 @@
+{
+  "projectType": "saas",
+  "projectName": "ApplyTrack",
+  "projectDescription": "An intelligent job application tracking platform that automatically captures and manages your career pipeline with AI-powered insights.",
+  "theme": "palm",
+  "primaryColor": "#1C4ED8",
+  "lightColor": "#F9FBFF",
+  "darkColor": "#070707",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/auto-tracking",
+              "features/dashboard",
+              "features/email-sync",
+              "features/ai-insights",
+              "features/analytics"
+            ]
+          },
+          {
+            "group": "Browser Extension",
+            "pages": [
+              "extension/installation",
+              "extension/usage",
+              "extension/supported-platforms"
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "dashboard/overview",
+              "dashboard/applications",
+              "dashboard/interviews",
+              "dashboard/analytics"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/gmail",
+              "integrations/outlook"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "guides/first-application",
+              "guides/setting-up-email-sync",
+              "guides/understanding-analytics"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "guides/ai-strategy",
+              "guides/optimization-tips",
+              "guides/data-export"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Account",
+            "pages": [
+              "resources/pricing",
+              "resources/account-settings",
+              "resources/data-privacy"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "resources/faq",
+              "resources/troubleshooting",
+              "resources/contact"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Automatic job application detection across 200+ platforms",
+    "Real-time email synchronization with Gmail and Outlook",
+    "AI-powered career insights and strategic recommendations",
+    "Comprehensive analytics dashboard with response rate tracking",
+    "Interview scheduling and preparation tools",
+    "Encrypted data storage with privacy-first architecture"
+  ],
+  "publicApiSurface": [
+    "/dashboard - Main dashboard overview with stats and recent activity",
+    "/dashboard/applications - Complete application tracking interface",
+    "/dashboard/interviews - Interview management and scheduling",
+    "/dashboard/analytics - Performance metrics and insights",
+    "/dashboard/insights - AI-powered market insights",
+    "/dashboard/salary - Salary comparison engine",
+    "/dashboard/prep - Interview preparation tools",
+    "/login - User authentication",
+    "/signup - Account creation",
+    "/forgot-password - Password recovery"
+  ]
+}
