@@ -1,0 +1,266 @@
+---
+title: Gmail Integration
+description: Connect your Gmail account to automatically track job application emails and update application statuses in real-time
+---
+
+## Overview
+
+The Gmail integration uses secure OAuth authentication to automatically track email threads related to your job applications. ApplyTrack monitors recruiter responses and intelligently updates your application statuses without any manual input.
+
+<Info>
+**Privacy First:** We use OAuth 2.0 authentication and never store your Gmail password. You maintain full control and can revoke access at any time.
+</Info>
+
+## Features
+
+- **Automatic Thread Tracking**: Monitors all email conversations related to your job applications
+- **Smart Status Updates**: Detects recruiter responses and updates application status automatically
+- **Real-time Sync**: Email updates appear in your dashboard within seconds
+- **Secure Authentication**: Industry-standard OAuth 2.0 protocol
+- **Zero Password Storage**: Your credentials are never stored on our servers
+
+## How It Works
+
+ApplyTrack's email synchronization engine scans your Gmail inbox for job-related communications and automatically updates your application pipeline:
+
+- **Applied** → Confirmation emails after submitting applications
+- **Interviewing** → Interview scheduling emails or recruiter responses
+- **Offer Extended** → Offer letters and compensation discussions
+- **Rejected** → Rejection notifications
+
+## Setup Process
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    From your ApplyTrack dashboard, click on **Settings** in the sidebar, then select **Integrations**.
+  </Step>
+  
+  <Step title="Select Gmail">
+    Click the **Connect Gmail** button in the Email Integrations section.
+  </Step>
+  
+  <Step title="Authenticate with Google">
+    You'll be redirected to Google's secure OAuth login page. Sign in with the Gmail account you use for job applications.
+    
+    <Warning>
+    Make sure you're signing in with the correct Gmail account - the one where you receive recruiter emails.
+    </Warning>
+  </Step>
+  
+  <Step title="Grant Permissions">
+    Review the permissions ApplyTrack requests:
+    - **Read email messages**: To detect job-related communications
+    - **Read email metadata**: To identify senders and thread relationships
+    
+    Click **Allow** to grant these permissions.
+  </Step>
+  
+  <Step title="Confirm Connection">
+    You'll be redirected back to ApplyTrack. A success message confirms your Gmail is connected.
+    
+    Initial sync typically completes within 2-3 minutes, processing the last 30 days of emails.
+  </Step>
+</Steps>
+
+## Email Patterns That Trigger Updates
+
+ApplyTrack's AI engine recognizes common email patterns to automatically update your application status:
+
+### Application Confirmation
+```
+From: noreply@company.com
+Subject: Application Received - Software Engineer
+
+Thank you for applying to the Software Engineer position...
+```
+**Triggers**: Status updated to **Applied**
+
+### Interview Request
+```
+From: recruiter@company.com
+Subject: Next Steps - Software Engineer Role
+
+We'd love to schedule a time to chat about your background...
+```
+**Triggers**: Status updated to **Interviewing**
+
+### Offer Letter
+```
+From: hiring@company.com
+Subject: Offer - Senior Developer Position
+
+We're excited to extend an offer for the Senior Developer role...
+```
+**Triggers**: Status updated to **Offer Extended**
+
+### Rejection Notice
+```
+From: noreply@company.com
+Subject: Update on Your Application
+
+We appreciate your interest, but we've decided to move forward
+with other candidates...
+```
+**Triggers**: Status updated to **Rejected**
+
+## Security & Privacy
+
+### OAuth 2.0 Authentication
+ApplyTrack uses Google's OAuth 2.0 protocol, which means:
+- Your password is never shared with ApplyTrack
+- You authorize specific, limited permissions
+- You can revoke access anytime from your Google Account settings
+
+### Data Encryption
+- All email data is encrypted in transit using TLS 1.3
+- Email metadata is encrypted at rest using AES-256
+- We only store email metadata (sender, subject, date) - not full message content
+
+### What We Don't Access
+- We never access emails unrelated to job applications
+- We don't read personal conversations
+- We don't store your Gmail password
+- We don't send emails on your behalf
+
+<Note>
+ApplyTrack uses locally-hosted AI models for email classification, ensuring your email content never leaves our secure infrastructure.
+</Note>
+
+## Troubleshooting
+
+### Gmail Connection Failed
+
+**Issue**: "Failed to connect to Gmail" error appears
+
+**Solutions**:
+1. Verify you're using the correct Gmail account
+2. Check that pop-ups aren't blocked in your browser
+3. Ensure third-party cookies are enabled
+4. Try disconnecting and reconnecting the integration
+
+### Emails Not Syncing
+
+**Issue**: New emails aren't updating application statuses
+
+**Solutions**:
+1. Check the **Last Sync** timestamp in Settings → Integrations
+2. Click **Sync Now** to force a manual sync
+3. Verify the email sender domain isn't in your spam folder
+4. Ensure emails are in your Primary inbox (not Promotions or Social tabs)
+
+### Permission Denied Error
+
+**Issue**: "Insufficient permissions" error during OAuth
+
+**Solutions**:
+1. Click **Disconnect** in ApplyTrack settings
+2. Reconnect and ensure you grant all requested permissions
+3. Check your Google Account security settings for blocked apps
+4. Disable less secure app access if enabled (OAuth doesn't require it)
+
+### Duplicate Status Updates
+
+**Issue**: Same application updated multiple times from one email
+
+**Solutions**:
+1. This is rare but can happen with email forwards or CC'd messages
+2. Check the **Activity Log** for the application to see all status changes
+3. Manually adjust the status if needed
+4. Contact support if duplicates persist
+
+### Sync Delays
+
+**Issue**: Email updates take longer than expected to appear
+
+**Solutions**:
+1. Normal sync interval is 5-10 minutes
+2. Premium users get real-time sync (30-60 seconds)
+3. Use **Sync Now** for immediate updates
+4. Check ApplyTrack status page for any service disruptions
+
+## Managing Your Connection
+
+### Viewing Sync Status
+Navigate to **Settings → Integrations** to see:
+- Connection status (Active/Disconnected)
+- Last successful sync timestamp
+- Total threads monitored
+- Recent sync activity
+
+### Disconnecting Gmail
+To disconnect your Gmail account:
+1. Go to **Settings → Integrations**
+2. Click **Disconnect** next to Gmail
+3. Confirm the disconnection
+4. Optionally revoke access in your [Google Account settings](https://myaccount.google.com/permissions)
+
+### Re-authorizing Access
+If your OAuth token expires or is revoked:
+1. You'll see a **Reconnect** button in Settings
+2. Click it to re-authenticate
+3. Grant permissions again
+4. Your previous email history will be preserved
+
+## Premium Features
+
+<CardGroup cols={2}>
+  <Card title="Real-time Sync" icon="zap">
+    Premium users get email updates within 30-60 seconds instead of 5-10 minutes
+  </Card>
+  
+  <Card title="Advanced Filters" icon="filter">
+    Create custom rules to categorize emails and trigger specific status updates
+  </Card>
+  
+  <Card title="Email Templates" icon="envelope">
+    Access AI-generated follow-up templates based on recruiter emails
+  </Card>
+  
+  <Card title="Priority Support" icon="headset">
+    Get prioritized help for integration issues
+  </Card>
+</CardGroup>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How far back does ApplyTrack scan my emails?">
+    The initial sync processes the last 30 days of emails. After that, only new incoming emails are monitored. Premium users can request a deeper historical scan of up to 90 days.
+  </Accordion>
+  
+  <Accordion title="Can I use multiple Gmail accounts?">
+    Currently, you can connect one Gmail account per ApplyTrack account. If you use multiple email addresses for job hunting, we recommend forwarding them to one primary account.
+  </Accordion>
+  
+  <Accordion title="Does this work with Google Workspace (G Suite)?">
+    Yes! The integration works with both personal Gmail accounts (@gmail.com) and Google Workspace accounts (custom domains).
+  </Accordion>
+  
+  <Accordion title="What happens if I revoke access from Google?">
+    Your existing application data remains intact, but new emails won't sync. You'll see a "Reconnect" prompt in your dashboard. Simply re-authorize to resume syncing.
+  </Accordion>
+  
+  <Accordion title="Can ApplyTrack send emails on my behalf?">
+    No. ApplyTrack only has read permissions. We cannot send, delete, or modify your emails. You maintain full control of your Gmail account.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Outlook Integration" icon="microsoft" href="/integrations/outlook">
+    Connect your Outlook account for complete email coverage
+  </Card>
+  
+  <Card title="Browser Extension" icon="puzzle-piece" href="/extensions/chrome">
+    Install the Chrome extension to automatically capture applications
+  </Card>
+  
+  <Card title="Dashboard Overview" icon="chart-line" href="/dashboard/overview">
+    Learn how to use your application tracking dashboard
+  </Card>
+  
+  <Card title="Privacy Policy" icon="shield" href="/legal/privacy">
+    Read our complete privacy and data handling policies
+  </Card>
+</CardGroup>

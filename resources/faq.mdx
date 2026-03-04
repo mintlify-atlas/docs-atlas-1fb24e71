@@ -1,0 +1,339 @@
+---
+title: Frequently Asked Questions
+description: Common questions about ApplyTrack, our browser extension, email sync, pricing plans, and data security.
+---
+
+## Getting Started
+
+<AccordionGroup>
+  <Accordion title="What is ApplyTrack and how does it work?">
+    ApplyTrack is an intelligent job application tracking platform that automatically captures and manages your career pipeline. When you apply to jobs on supported platforms, our browser extension silently detects the submission and logs it to your dashboard—no manual data entry required.
+
+    The system then syncs with your email inbox (Gmail or Outlook) to track recruiter responses, interview invitations, and offer letters, automatically updating your application statuses in real-time.
+  </Accordion>
+
+  <Accordion title="Which job boards and platforms are supported?">
+    ApplyTrack supports automatic detection on 200+ job boards including:
+
+    - **Major platforms**: LinkedIn, Indeed, Glassdoor, ZipRecruiter
+    - **Tech-focused**: AngelList, Wellfound, Hired, Triplebyte
+    - **Company career pages**: Most ATS systems like Greenhouse, Lever, Workday, and Taleo
+    - **Startup boards**: Y Combinator jobs, RemoteOK, We Work Remotely
+
+    Our content script is continuously updated to support new platforms as they emerge.
+  </Accordion>
+
+  <Accordion title="Do I need to install anything to use ApplyTrack?">
+    Yes, you'll need to install the ApplyTrack browser extension to enable automatic application detection. The extension is available for:
+
+    - **Chrome**: Chrome Web Store
+    - **Firefox**: Firefox Add-ons
+    - **Edge**: Microsoft Edge Add-ons
+
+    After installing the extension, sign in with your ApplyTrack account credentials. The extension runs in the background and only activates when you're on a supported job board.
+
+    [Install the extension →](/extension/installation)
+  </Accordion>
+
+  <Accordion title="Can I use ApplyTrack without the browser extension?">
+    The browser extension is required for automatic application detection. However, you can manually add applications directly through the dashboard if you prefer not to use the extension, or if you're applying through platforms that aren't yet supported.
+
+    Manual entry allows you to track applications from email submissions, networking referrals, or any custom workflow.
+  </Accordion>
+</AccordionGroup>
+
+## Extension & Auto-Tracking
+
+<AccordionGroup>
+  <Accordion title="How does the extension detect job applications?">
+    The ApplyTrack extension uses a high-speed content script that monitors DOM events on supported job boards. When you click "Submit" or "Apply," the extension captures:
+
+    - Company name and job title
+    - Application date and time
+    - Job description and requirements  
+    - Application URL and platform metadata
+    - Location and salary information (if available)
+
+    All data is encrypted and sent to your private dashboard within seconds.
+  </Accordion>
+
+  <Accordion title="Does the extension slow down my browser?">
+    No. The extension is optimized for minimal resource usage and only activates on job board domains. It uses lazy-loading and efficient event listeners to ensure your browsing experience remains fast and responsive.
+
+    The extension typically uses less than 5MB of memory and has no impact on page load times.
+  </Accordion>
+
+  <Accordion title="Will the extension work on all websites?">
+    The extension only activates on supported job boards and application platforms to respect your privacy and minimize resource usage. It will not track or monitor activity on other websites.
+
+    You can view the full list of supported platforms in your dashboard settings or contact our team to request support for a specific platform.
+  </Accordion>
+
+  <Accordion title="Can I temporarily disable the extension?">
+    Yes, you can disable the extension at any time through your browser's extension settings. When disabled, ApplyTrack will not capture new applications automatically, but your existing data and dashboard access remain unchanged.
+
+    You can also configure the extension to only track applications on specific domains through the extension settings panel.
+  </Accordion>
+</AccordionGroup>
+
+## Email Sync & Integration
+
+<AccordionGroup>
+  <Accordion title="How does email sync work?">
+    ApplyTrack uses secure OAuth authentication to connect to your Gmail or Outlook account. We never store your email password—authentication is handled directly by Google or Microsoft.
+
+    Once connected, ApplyTrack monitors email threads related to your job applications and automatically updates statuses when it detects:
+
+    - **Recruiter responses** → Status changes to "In Review"
+    - **Interview invitations** → Status changes to "Interviewing"  
+    - **Rejection emails** → Status changes to "Not Selected"
+    - **Offer letters** → Status changes to "Offer Extended"
+
+    [Learn more about email sync →](/features/email-sync)
+  </Accordion>
+
+  <Accordion title="What email providers are supported?">
+    Currently, ApplyTrack supports:
+
+    - **Gmail** (including Google Workspace accounts)
+    - **Outlook** (including Microsoft 365 accounts)
+
+    Support for additional providers like ProtonMail and custom IMAP servers is planned for future releases.
+  </Accordion>
+
+  <Accordion title="Is my email data secure?">
+    Absolutely. ApplyTrack takes email security seriously:
+
+    - **OAuth authentication**: We never store your email password
+    - **Encrypted storage**: All email metadata is encrypted at rest using AES-256
+    - **Minimal access**: We only read job-related threads, not your entire inbox
+    - **Local processing**: Email content is analyzed using locally-hosted models, not sent to third parties
+    - **GDPR compliant**: Full data deletion available on request
+
+    [Read our privacy policy →](https://applytrack.ai/privacy)
+  </Accordion>
+
+  <Accordion title="Can I disconnect my email at any time?">
+    Yes, you can revoke ApplyTrack's access to your email at any time through your dashboard settings. Disconnecting will:
+
+    - Stop all future email monitoring
+    - Revoke OAuth tokens immediately
+    - Preserve your existing application data (unless you choose to delete it)
+
+    You can reconnect your email later without losing any historical data.
+  </Accordion>
+</AccordionGroup>
+
+## Pricing & Plans
+
+<AccordionGroup>
+  <Accordion title="What's included in the free tier?">
+    The **Basic Access** plan includes:
+
+    - Track up to 5 applications per month
+    - Automatic application detection via browser extension
+    - Standard dashboard with application status tracking
+    - Manual application entry
+    - Basic analytics
+
+    **Not included**: AI insights, email sync, unlimited tracking, advanced analytics, priority support
+
+    The free tier is perfect for casual job seekers or testing the platform before upgrading.
+  </Accordion>
+
+  <Accordion title="What's the difference between Premium and Platinum plans?">
+    **Premium Pro ($9/month)** includes:
+    - Unlimited application tracking
+    - Deep Gmail/Outlook email sync
+    - AI strategic insights and recommendations
+    - Advanced analytics and visualizations
+    - Priority customer support
+
+    **Platinum Elite ($19/month)** includes everything in Premium, plus:
+    - AI-powered interview preparation assistant
+    - Resume and portfolio scoring
+    - Executive career strategy recommendations
+    - Network referral matching
+    - White-glove support
+
+    Most users find Premium Pro provides all the features they need for an effective job search.
+  </Accordion>
+
+  <Accordion title="Can I change plans at any time?">
+    Yes, you can upgrade or downgrade your plan at any time from your dashboard settings. Changes take effect immediately:
+
+    - **Upgrading**: Instant access to new features, prorated billing for the current period
+    - **Downgrading**: Feature access removed at the end of current billing cycle, no partial refunds
+
+    If you downgrade from unlimited tracking to the free tier, your existing data is preserved but you won't be able to add new applications beyond the 5/month limit.
+  </Accordion>
+
+  <Accordion title="Do you offer annual billing or discounts?">
+    Yes! Annual subscriptions receive a 20% discount:
+
+    - **Premium Pro**: $86.40/year (save $21.60)
+    - **Platinum Elite**: $182.40/year (save $45.60)
+
+    We also offer discounts for students (50% off with valid .edu email) and non-profit organizations. Contact our team for custom enterprise pricing.
+  </Accordion>
+
+  <Accordion title="What happens if I cancel my subscription?">
+    When you cancel:
+
+    - Your account remains active until the end of the current billing period
+    - You'll automatically be downgraded to the free tier
+    - Your application data is preserved (up to the free tier limit of 5 applications)
+    - Premium features (email sync, AI insights, etc.) will be disabled
+
+    You can export all your data before canceling or reactivate your subscription at any time to restore full access.
+  </Accordion>
+</AccordionGroup>
+
+## Data & Privacy
+
+<AccordionGroup>
+  <Accordion title="How is my application data stored?">
+    All application data is stored in secure, encrypted databases hosted on enterprise-grade infrastructure:
+
+    - **Encryption at rest**: AES-256 encryption for all stored data
+    - **Encryption in transit**: TLS 1.3 for all API communications
+    - **Isolated storage**: Your data is logically separated from other users
+    - **Regular backups**: Automated daily backups with 30-day retention
+    - **SOC 2 compliant**: Annual third-party security audits
+  </Accordion>
+
+  <Accordion title="Can I export my application data?">
+    Yes, you can export all your data at any time in multiple formats:
+
+    - **CSV**: Import into Excel or Google Sheets
+    - **JSON**: Machine-readable format for custom integrations
+    - **PDF**: Formatted report with all application details
+
+    Navigate to **Settings → Data Export** to generate and download your export file.
+  </Accordion>
+
+  <Accordion title="How do I delete my account and data?">
+    To permanently delete your account:
+
+    1. Go to **Settings → Account**
+    2. Scroll to **Danger Zone**
+    3. Click **Delete Account**
+    4. Confirm deletion (this action is irreversible)
+
+    Upon deletion:
+    - All application data is permanently removed within 48 hours
+    - Email sync connections are revoked immediately
+    - Browser extension access is disabled
+    - All subscriptions are canceled with no refunds
+
+    We recommend exporting your data before deletion.
+  </Accordion>
+
+  <Accordion title="Do you sell or share my data with third parties?">
+    **No, never.** ApplyTrack does not sell, rent, or share your personal data with third parties for marketing purposes. Your application data, email content, and career information remain strictly confidential.
+
+    We only share data when:
+    - Required by law (e.g., valid subpoena)
+    - Necessary for service operations (e.g., hosting providers with strict NDAs)
+    - You explicitly authorize sharing (e.g., exporting data)
+
+    See our [Privacy Policy](https://applytrack.ai/privacy) for complete details.
+  </Accordion>
+</AccordionGroup>
+
+## Dashboard & Features
+
+<AccordionGroup>
+  <Accordion title="What metrics does the dashboard track?">
+    The ApplyTrack dashboard displays:
+
+    - **Total Applications**: Count with month-over-month growth percentage
+    - **Interviews**: Number of interviews scheduled and completed
+    - **Offer Rate**: Percentage of applications resulting in offers
+    - **Active Pipeline**: Applications currently in discussion
+    - **Response Rate**: Percentage of applications receiving recruiter responses
+    - **Time-to-Response**: Average time from application to first recruiter contact
+
+    Premium users also see AI-powered insights comparing your metrics to industry benchmarks.
+
+    [Explore the dashboard →](/features/dashboard)
+  </Accordion>
+
+  <Accordion title="Can I manually edit application details?">
+    Yes, you have full control over all application data. You can:
+
+    - Edit company name, job title, location, salary
+    - Update application status manually
+    - Add custom notes and tags
+    - Upload related documents (resume, cover letter)
+    - Set interview dates and reminders
+    - Archive or delete applications
+
+    Click any application card to open the detail view and make changes.
+  </Accordion>
+
+  <Accordion title="How do AI insights work?">
+    ApplyTrack's AI engine (available on Premium and Platinum plans) analyzes your application data to provide:
+
+    - **Response rate analysis**: Identify which job types, companies, or platforms yield the best response rates
+    - **Timing optimization**: Suggest optimal days and times to submit applications
+    - **Profile recommendations**: Detect patterns in successful vs. unsuccessful applications
+    - **Opportunity alerts**: Notify you of new job postings matching your profile
+    - **Strategic guidance**: Weekly summaries with actionable next steps
+
+    All AI processing uses locally-hosted models to protect your privacy.
+  </Accordion>
+
+  <Accordion title="Can I access ApplyTrack on mobile?">
+    Yes, the ApplyTrack dashboard is fully responsive and works on mobile browsers. Simply visit your dashboard URL from any device and log in.
+
+    We're currently developing native iOS and Android apps with offline support and push notifications. Join the waitlist in your dashboard settings to be notified when they launch.
+  </Accordion>
+</AccordionGroup>
+
+## Support & Help
+
+<AccordionGroup>
+  <Accordion title="How do I contact support?">
+    We offer multiple support channels:
+
+    - **Email**: support@applytrack.ai (24-48 hour response time)
+    - **Priority support**: Premium and Platinum users receive responses within 12 hours
+    - **Documentation**: Comprehensive guides at docs.applytrack.ai
+    - **Community**: Join our Discord for peer support and product updates
+
+    For urgent issues, Premium users can use the in-dashboard chat for live support during business hours (9am-6pm EST, Mon-Fri).
+
+    [Contact support →](/resources/contact)
+  </Accordion>
+
+  <Accordion title="Do you offer onboarding or training?">
+    All users receive:
+    - Interactive product tour on first login
+    - Quick start guide and video tutorials
+    - Email onboarding sequence with best practices
+
+    **Platinum Elite** users also receive:
+    - 1-on-1 onboarding call with a career specialist
+    - Custom dashboard configuration
+    - Strategic planning session
+
+    Enterprise customers can request custom training sessions for teams.
+  </Accordion>
+
+  <Accordion title="What if I have a feature request?">
+    We love hearing from users! Submit feature requests through:
+
+    - **In-app feedback**: Click the feedback icon in your dashboard
+    - **Email**: features@applytrack.ai
+    - **Community roadmap**: Vote on upcoming features at roadmap.applytrack.ai
+
+    Popular requests are prioritized for upcoming releases. Premium users' feedback is weighted higher in our prioritization process.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Card title="Still have questions?" icon="message-question" href="/resources/contact">
+  Can't find what you're looking for? Our support team is here to help. Reach out via email or check our troubleshooting guide for common issues.
+</Card>

@@ -1,0 +1,440 @@
+---
+title: 'Analytics & Reporting'
+description: 'Track performance metrics, response rates, and success patterns to optimize your job search strategy'
+icon: 'line-chart'
+---
+
+## Performance Dashboard
+
+The Analytics section provides comprehensive metrics on your job search performance, helping you identify what's working and where to improve. Access from the sidebar under **Inventory → Analytics**.
+
+<Frame>
+  <img src="/images/analytics-dashboard.png" alt="Analytics Dashboard" />
+</Frame>
+
+## Core Metrics
+
+ApplyTrack tracks four primary statistics displayed on your main dashboard:
+
+<CardGroup cols={2}>
+  <Card title="Total Applied" icon="briefcase">
+    **142 applications** tracked with month-over-month growth percentage
+  </Card>
+  <Card title="Interview Rate" icon="clock">
+    **12 interviews** secured with conversion rate and weekly trends
+  </Card>
+  <Card title="Offer Rate" icon="trending-up">
+    **2.4% success rate** compared to industry benchmark (1.8%)
+  </Card>
+  <Card title="Active Pipeline" icon="zap">
+    **18 opportunities** currently in active discussion phase
+  </Card>
+</CardGroup>
+
+```typescript
+// Real dashboard stats from source code (app/dashboard/page.tsx:19-24)
+const stats = [
+    { 
+      label: 'Total Applied', 
+      val: '142', 
+      sub: '+12% month over month', 
+      icon: Briefcase, 
+      color: "text-blue-600", 
+      bg: "bg-blue-50" 
+    },
+    { 
+      label: 'Interviews', 
+      val: '12', 
+      sub: '3 scheduled this week', 
+      icon: Clock, 
+      color: "text-amber-500", 
+      bg: "bg-amber-50" 
+    },
+    { 
+      label: 'Offer Rate', 
+      val: '2.4%', 
+      sub: 'Higher than average (1.8%)', 
+      icon: TrendingUp, 
+      color: "text-emerald-500", 
+      bg: "bg-emerald-50" 
+    },
+    { 
+      label: 'Active Pipeline', 
+      val: '18', 
+      sub: 'Currently in discussion', 
+      icon: Zap, 
+      color: "text-indigo-600", 
+      bg: "bg-indigo-50" 
+    }
+];
+```
+
+## Network Health Metrics
+
+The dashboard displays a **Response Rate Efficiency** widget showing your overall performance:
+
+- **82% efficiency**: Current response rate from all applications
+- **Visual progress bar**: Quick at-a-glance performance indicator
+- **Trend comparison**: Week-over-week improvement tracking
+- **Benchmark**: Comparison to industry averages
+
+```typescript
+// Network health display from source code (app/dashboard/page.tsx:192-203)
+<div className="rounded-[2.5rem] border border-zinc-100 bg-zinc-50 p-8">
+  <div>Network Health</div>
+  <div className="space-y-4">
+    <div className="h-1.5 w-full rounded-full bg-zinc-200 overflow-hidden">
+      <div className="h-full w-[82%] bg-[#1C4ED8]" />
+    </div>
+    <div className="flex justify-between items-center">
+      <span>Response Rate Efficiency</span>
+      <span>82%</span>
+    </div>
+  </div>
+</div>
+```
+
+<Info>
+  **82%** is considered excellent. The average job seeker has a 50-60% response rate efficiency.
+</Info>
+
+## Advanced Analytics (Premium/Platinum)
+
+Navigate to **Inventory → Analytics** in the sidebar to access detailed reporting:
+
+<Tabs>
+  <Tab title="Response Rate Trends">
+    
+    ### Interview Callback Tracking
+    
+    Track your response rate over time to identify patterns:
+    
+    - **Weekly/monthly charts**: Visualize application volume and response trends
+    - **Success rate by week**: See which periods have highest conversion
+    - **Platform breakdown**: Which job boards yield best results
+    - **Time-to-response**: Average days from application to first contact
+    
+    <Accordion title="Understanding Your Response Rate">
+      
+      **Response Rate** = (Interviews Received / Total Applications) × 100
+      
+      Example:
+      - 142 total applications
+      - 12 interviews received
+      - Response rate: **8.5%**
+      
+      Industry benchmarks:
+      - Entry-level: 3-5%
+      - Mid-level: 5-8%
+      - Senior: 8-12%
+      - Executive: 12-20%
+      
+      Your current rate of **8.5%** is excellent for mid-level positions.
+      
+    </Accordion>
+    
+  </Tab>
+  
+  <Tab title="Application Velocity">
+    
+    ### Volume & Pacing Analysis
+    
+    Monitor your application activity:
+    
+    - **Applications per week**: Bar chart showing submission volume
+    - **Best days to apply**: Which days of the week have highest response rates
+    - **Application streaks**: Track consistency and momentum
+    - **Burnout indicators**: Alerts when application quality may be declining
+    
+    <Card title="Example Insight" icon="sparkles">
+      "You applied to 18 roles last week but only 4 this week. Maintain momentum by setting a goal of 10 applications per week."
+    </Card>
+    
+    **From landing page source (app/page.tsx:33-36)**:
+    ```typescript
+    {
+      step: "03", 
+      title: "Master Your Results", 
+      desc: "View real-time response rates, recruiter activity, and AI-suggested next steps."
+    }
+    ```
+    
+  </Tab>
+  
+  <Tab title="Success Funnel">
+    
+    ### Conversion Rate Analysis
+    
+    Visualize your job search funnel:
+    
+    ```
+    Applications (142) 
+      ↓ 8.5% conversion
+    Interviews (12)
+      ↓ 25% conversion  
+    Final Rounds (3)
+      ↓ 66% conversion
+    Offers (2)
+    ```
+    
+    Track conversion rates at each stage:
+    - **Applied → Interview**: Your response rate (8.5%)
+    - **Interview → Final Round**: Interview performance (25%)
+    - **Final Round → Offer**: Close rate (66%)
+    
+    <Accordion title="Improving Each Stage">
+      
+      **Low application → interview rate?**
+      - Optimize resume for ATS (use Portfolio Scoring)
+      - Apply to more targeted roles
+      - Leverage referrals (Network Referrals on Platinum)
+      
+      **Low interview → final round rate?**
+      - Practice with AI Interview Assistant (Platinum)
+      - Research companies more thoroughly
+      - Improve technical skills
+      
+      **Low final round → offer rate?**
+      - Negotiate better (use Salary Engine)
+      - Prepare better references
+      - Demonstrate culture fit more effectively
+      
+    </Accordion>
+    
+  </Tab>
+  
+  <Tab title="Time-to-Response">
+    
+    ### Response Timeline Analysis
+    
+    Understand how long it takes to hear back:
+    
+    - **Average response time**: Days from application to first contact
+    - **Fastest responders**: Companies that reply within 48 hours
+    - **Slowest responders**: Applications pending 30+ days
+    - **Optimal follow-up timing**: When to send follow-up emails
+    
+    <CardGroup cols={2}>
+      <Card title="Fast Track" icon="zap">
+        **Anthropic**: 2 days average response time
+      </Card>
+      <Card title="Standard" icon="clock">
+        **Tesla**: 14 days average response time
+      </Card>
+      <Card title="Slow" icon="hourglass">
+        **Large Enterprise**: 30+ days average
+      </Card>
+      <Card title="No Response" icon="x">
+        **Ghost Zone**: 45+ days (likely rejected)
+      </Card>
+    </CardGroup>
+    
+    The AI uses this data to suggest follow-up timing:
+    > "It's been 7 days since applying to Stripe. Their average response time is 10 days—wait 3 more days before following up."
+    
+  </Tab>
+</Tabs>
+
+## Company Insights Analytics
+
+<AccordionGroup>
+  <Accordion title="Response Rate by Company">
+    
+    See which companies respond most frequently:
+    
+    | Company | Applications | Interviews | Response Rate |
+    |---------|--------------|------------|---------------|
+    | Anthropic | 3 | 2 | 66.7% |
+    | Scale AI | 5 | 2 | 40.0% |
+    | OpenAI | 4 | 1 | 25.0% |
+    | Tesla | 8 | 1 | 12.5% |
+    | Amazon | 12 | 0 | 0.0% |
+    
+    <Info>
+      **Insight**: You have a 3x higher response rate with AI startups (50-200 employees) compared to large enterprises.
+    </Info>
+    
+  </Accordion>
+  
+  <Accordion title="Industry Breakdown">
+    
+    Applications segmented by industry:
+    
+    - **AI/ML**: 45 applications, 12% response rate
+    - **Fintech**: 28 applications, 7% response rate
+    - **Enterprise SaaS**: 35 applications, 5% response rate
+    - **Startups**: 34 applications, 11% response rate
+    
+    Pie chart visualization shows where you're applying most and which sectors respond best.
+    
+  </Accordion>
+  
+  <Accordion title="Company Size Analysis">
+    
+    Response rates by company size:
+    
+    - **1-50 employees**: 15% response rate (high competition, but faster)
+    - **51-200 employees**: 12% response rate (best balance)
+    - **201-1000 employees**: 6% response rate (structured hiring)
+    - **1000+ employees**: 3% response rate (slow, competitive)
+    
+    The AI recommends focusing on **51-200 employee companies** for your profile.
+    
+  </Accordion>
+</AccordionGroup>
+
+## Email Performance Metrics (Premium/Platinum)
+
+With email sync enabled, track communication patterns:
+
+<CardGroup cols={2}>
+  <Card title="Email Threads" icon="mail">
+    **24 active threads** being monitored for updates
+  </Card>
+  <Card title="Response Time" icon="clock">
+    Average **4.2 hours** to reply to recruiter emails
+  </Card>
+  <Card title="Follow-Up Success" icon="repeat">
+    **24% increase** in interviews after follow-up emails
+  </Card>
+  <Card title="Best Send Times" icon="calendar">
+    **Tuesday 10am** has highest recruiter response rate
+  </Card>
+</CardGroup>
+
+### Email Analytics Dashboard
+
+Premium and Platinum users see:
+
+- **Thread activity**: Which conversations are most active
+- **Sentiment trends**: Positive, neutral, or negative tone in recruiter emails
+- **Response velocity**: How quickly recruiters reply to you (and vice versa)
+- **Follow-up reminders**: Automated suggestions for when to follow up
+
+```typescript
+// Email sync status from dashboard header (components/dashboard/Header.tsx)
+<div className="flex items-center gap-3">
+  <div className="flex -space-x-2">
+    {[1, 2, 3].map((i) => (
+      <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-zinc-200" />
+    ))}
+  </div>
+  <span>Syncing 24 Active threads</span>
+</div>
+```
+
+## Export & Reporting
+
+Generate reports for personal tracking or career coaching:
+
+<Tabs>
+  <Tab title="CSV Export">
+    
+    Export all applications with fields:
+    - Company name
+    - Role title
+    - Application date
+    - Current status
+    - Last update timestamp
+    - Response time (if applicable)
+    - Salary range
+    - Notes
+    
+    Perfect for importing into spreadsheets or sharing with career advisors.
+    
+  </Tab>
+  <Tab title="PDF Reports">
+    
+    Generate formatted reports:
+    
+    - **Weekly summaries**: Application activity and insights
+    - **Monthly performance**: Trends, graphs, and benchmark comparisons
+    - **Custom date ranges**: Analyze specific time periods
+    - **Company-specific**: All applications to a single employer
+    
+    Includes charts, graphs, and AI commentary on your performance.
+    
+  </Tab>
+  <Tab title="Share Links">
+    
+    Create shareable dashboard links (Platinum only):
+    
+    - **Read-only access**: Share your application portfolio with career coaches
+    - **Time-limited**: Links expire after 7 days
+    - **Privacy controls**: Hide sensitive data like salary expectations
+    
+  </Tab>
+</Tabs>
+
+## Analytics Features by Plan
+
+<Tabs>
+  <Tab title="Free Plan">
+    
+    Limited analytics:
+    
+    - ✅ Basic stats (total applied, interviews)
+    - ✅ Recent activity feed
+    - ❌ No historical trends
+    - ❌ No advanced filtering
+    - ❌ No export features
+    
+  </Tab>
+  <Tab title="Premium - $9/mo">
+    
+    **Advanced Analytics** included:
+    
+    - ✅ Response rate trends (weekly/monthly charts)
+    - ✅ Application velocity tracking
+    - ✅ Success funnel visualization
+    - ✅ Time-to-response analysis
+    - ✅ Company/industry breakdowns
+    - ✅ CSV export
+    - ✅ Email performance metrics
+    
+  </Tab>
+  <Tab title="Platinum - $19/mo">
+    
+    Everything in Premium plus:
+    
+    - ✅ **Executive strategy reports**: AI-generated career path analysis
+    - ✅ **PDF report generation**: Professional formatted reports
+    - ✅ **Shareable dashboard links**: Collaborate with career coaches
+    - ✅ **Advanced segmentation**: Multi-dimensional filtering
+    - ✅ **Benchmark comparisons**: Compare to similar professionals
+    - ✅ **Predictive analytics**: Forecast interview likelihood for new applications
+    
+  </Tab>
+</Tabs>
+
+## Benchmark Comparisons
+
+See how your performance compares to similar job seekers:
+
+<Card title="Your Performance vs. Peers" icon="users">
+  
+  **Your profile**: Mid-level Software Engineer, 5 YOE, AI/ML focus
+  
+  | Metric | You | Average | Top 10% |
+  |--------|-----|---------|----------|
+  | Response Rate | 8.5% | 6.2% | 12.8% |
+  | Applications/Week | 12 | 8 | 15 |
+  | Time-to-Interview | 11 days | 16 days | 7 days |
+  | Offer Rate | 2.4% | 1.8% | 4.2% |
+  
+</Card>
+
+<Info>
+  You're performing **above average** in most categories. To reach top 10%, focus on increasing application volume while maintaining quality.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="AI Insights" icon="sparkles" href="/features/ai-insights">
+    Use AI recommendations to improve your metrics
+  </Card>
+  <Card title="Dashboard Guide" icon="layout-dashboard" href="/features/dashboard">
+    Navigate all dashboard features and sections
+  </Card>
+</CardGroup>

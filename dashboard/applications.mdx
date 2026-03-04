@@ -1,0 +1,287 @@
+---
+title: 'Applications'
+description: 'Track and manage all your job applications in one place'
+---
+
+# Applications
+
+The Applications page is your central hub for tracking all job applications throughout their entire lifecycle. Monitor status changes, manage communications, and get AI-powered insights to improve your application strategy.
+
+## Overview
+
+Manage your complete application portfolio with:
+
+- **142 Total Applications** tracked in the system
+- Real-time status updates across all application stages
+- Company information and role details
+- Timeline tracking from submission to outcome
+
+## Application Statuses
+
+Applications move through distinct stages, each with visual indicators:
+
+<CardGroup cols={2}>
+  <Card title="Applied" icon="circle">
+    **Gray Badge**
+    
+    Initial submission completed, awaiting response
+  </Card>
+  
+  <Card title="Interviewing" icon="users">
+    **Blue Badge**
+    
+    Active in interview process with scheduled rounds
+  </Card>
+  
+  <Card title="Technical Round" icon="code">
+    **Amber Badge**
+    
+    Technical assessment or coding challenge stage
+  </Card>
+  
+  <Card title="Offer Extended" icon="check-circle">
+    **Green Badge**
+    
+    Received offer, pending decision
+  </Card>
+</CardGroup>
+
+## Recent Applications
+
+The interface displays your most recent applications with detailed information:
+
+### Example Applications
+
+<Accordion title="Anthropic - AI Researcher">
+  **Status**: Interviewing
+  
+  **Applied**: 2 hours ago
+  
+  **Current Stage**: Initial screening completed, technical interview scheduled
+  
+  **Actions Available**:
+  - View application details
+  - Prepare for next interview
+  - Update status
+  - Add notes
+</Accordion>
+
+<Accordion title="OpenAI - Software Engineer">
+  **Status**: Applied
+  
+  **Applied**: 5 hours ago
+  
+  **Current Stage**: Application submitted, awaiting response
+  
+  **Actions Available**:
+  - Track application status
+  - Set follow-up reminder
+  - View job description
+</Accordion>
+
+<Accordion title="Scale AI - Product Designer">
+  **Status**: Offer Extended
+  
+  **Applied**: 1 day ago
+  
+  **Current Stage**: Offer received, decision pending
+  
+  **Actions Available**:
+  - Review offer details
+  - Compare with other offers
+  - Accept/decline offer
+</Accordion>
+
+<Accordion title="Tesla - Senior Developer">
+  **Status**: Technical Round
+  
+  **Applied**: 2 days ago
+  
+  **Current Stage**: Technical assessment in progress
+  
+  **Actions Available**:
+  - Access coding challenge
+  - Review technical requirements
+  - Submit assessment
+</Accordion>
+
+## Application Card Layout
+
+Each application is displayed in a card format with:
+
+### Visual Elements
+
+```tsx
+Company Initial Badge
+  ├─ Large letter representing company (e.g., "A" for Anthropic)
+  └─ Hover effect changes color to primary blue
+
+Company Details
+  ├─ Company name (bold, black, tracking-tight)
+  └─ Role title (smaller, gray, bold)
+
+Status Indicators
+  ├─ Timestamp (uppercase, gray)
+  ├─ Status badge (color-coded, rounded pill)
+  └─ More options menu (vertical dots)
+```
+
+### Interactive Features
+
+- **Hover States**: Cards transition to light gray background on hover
+- **Company Badge**: Changes from gray to white with blue text on hover
+- **More Options**: Menu icon becomes visible and darkens on hover
+- **Click Actions**: Opens detailed application view
+
+## Quick Actions
+
+### New Track Button
+
+Add a new application with the Quick Command panel:
+
+<Steps>
+  <Step title="Click New Track">
+    Access from the Quick Command section in the sidebar
+  </Step>
+  
+  <Step title="Enter Company Details">
+    Add company name, role, and application details
+  </Step>
+  
+  <Step title="Set Status">
+    Choose initial status (typically "Applied")
+  </Step>
+  
+  <Step title="Add Notes">
+    Include application date, source, and any relevant notes
+  </Step>
+</Steps>
+
+### Sync Mail
+
+Automatically detect and track applications from your email:
+
+<Info>
+  ApplyTrack scans your email for:
+  - Application confirmation emails
+  - Interview invitations
+  - Status update notifications
+  - Offer letters
+</Info>
+
+## Application Management
+
+### Bulk Actions
+
+Manage multiple applications simultaneously:
+
+- Update status for multiple applications
+- Add tags or categories
+- Set follow-up reminders
+- Export application data
+
+### Filtering & Search
+
+Find specific applications using:
+
+- **Status Filter**: View only Applied, Interviewing, etc.
+- **Company Search**: Search by company name
+- **Date Range**: Filter by application date
+- **Role Type**: Filter by position type
+
+## Application Details
+
+Click any application to view comprehensive details:
+
+<Tabs>
+  <Tab title="Overview">
+    - Company information
+    - Role description
+    - Application date
+    - Current status
+    - Next steps
+  </Tab>
+  
+  <Tab title="Timeline">
+    - Application submitted
+    - Status changes
+    - Interview rounds
+    - Communications
+    - Outcome
+  </Tab>
+  
+  <Tab title="Communications">
+    - Email thread
+    - Interview notes
+    - Follow-up messages
+    - Offer details
+  </Tab>
+  
+  <Tab title="Documents">
+    - Resume version used
+    - Cover letter
+    - Portfolio links
+    - Additional materials
+  </Tab>
+</Tabs>
+
+## View All Applications
+
+The "Show All Applications" button at the bottom of the Recent Activity section expands to show your complete application portfolio with:
+
+- Pagination for large application lists
+- Sortable columns (date, company, status)
+- Advanced filtering options
+- Export to CSV functionality
+
+## Design Specifications
+
+### Layout Structure
+
+```
+Application Card
+  Border: 1px solid zinc-100
+  Background: white
+  Padding: 24px (1.5rem)
+  Border Radius: 32px (2rem)
+  Hover: Background changes to zinc-50/50
+  Transition: All properties smooth
+```
+
+### Typography
+
+- **Company Name**: text-sm, font-black, text-black
+- **Role Title**: text-[11px], font-bold, text-zinc-400
+- **Timestamp**: text-[10px], font-bold, text-zinc-300, uppercase
+- **Status Badge**: text-[9px], font-black, uppercase
+
+### Color System
+
+| Status | Text Color | Background |
+|--------|-----------|------------|
+| Applied | text-zinc-500 | bg-zinc-50 |
+| Interviewing | text-blue-600 | bg-blue-50 |
+| Technical Round | text-amber-600 | bg-amber-50 |
+| Offer Extended | text-emerald-600 | bg-emerald-50 |
+
+<Note>
+  Applications are automatically synced with your email and calendar to ensure all information stays current.
+</Note>
+
+## Integration Features
+
+### Email Sync
+
+ApplyTrack connects to your email to:
+- Auto-detect application submissions
+- Track recruiter responses
+- Identify interview invitations
+- Monitor status updates
+
+### Calendar Integration
+
+Automatically creates calendar events for:
+- Interview dates and times
+- Application deadlines
+- Follow-up reminders
+- Decision due dates

@@ -1,80 +1,367 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: 'Quickstart Guide'
+description: 'Get started with ApplyTrack in under 5 minutes. Sign up, set up tracking, and log your first job application.'
+icon: 'rocket'
 ---
 
-## Get started in three steps
-
-Get your documentation site running locally and make your first customization.
-
-### Step 1: Set up your local environment
-
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
-
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
+Welcome to ApplyTrack, your intelligent career tracking engine. This guide will walk you through creating your account and tracking your first job application.
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+ApplyTrack automatically captures job applications from 200+ job boards and syncs with your email—no manual data entry required after initial setup.
 </Note>
+
+## Create Your Account
+
+<Steps>
+  <Step title="Navigate to the signup page">
+    Visit the ApplyTrack signup page or click **Maximize My Search** from the homepage.
+
+    You'll see the signup form with the heading "Initialize your career engine" and the tagline about joining 10,000+ high-performance candidates.
+  </Step>
+
+  <Step title="Complete the signup form">
+    Fill in the following fields:
+
+    - **First Name**: Your first name (e.g., "John")
+    - **Last Name**: Your last name (e.g., "Doe")
+    - **Work Email**: Your professional email address (e.g., "john@example.com")
+    - **Choose Password**: A secure password (minimum 8 characters)
+
+    <Tip>
+    Look for the green checkmarks confirming:
+    - No credit card required for free tier
+    - Instant browser extension access
+    </Tip>
+  </Step>
+
+  <Step title="Sign up with email or OAuth">
+    Choose one of the following options:
+
+    **Option 1: Email Signup**
+    
+    Click the blue **Start Free Deployment** button to create your account with email.
+
+    **Option 2: Quick OAuth**
+    
+    Use the social login buttons below the divider that says "Or expedite with":
+    - **Github**: Connect with your GitHub account
+    - **Google**: Connect with your Google account
+
+    <Note>
+    By signing up, you agree to ApplyTrack's Terms of Protocol and Data Privacy.
+    </Note>
+  </Step>
+
+  <Step title="Access your dashboard">
+    After successful signup, you'll be redirected to your **Dashboard Overview**.
+
+    Your dashboard displays:
+    - Welcome message: "Welcome back, [Your Name]. You have 3 interviews coming up this week."
+    - Four stat cards showing:
+      - **Total Applied**: Track all applications
+      - **Interviews**: Monitor scheduled rounds
+      - **Offer Rate**: Compare against industry average (1.8%)
+      - **Active Pipeline**: Applications currently in discussion
+    - Recent Activity feed
+    - Upcoming Rounds sidebar
+    - Quick Command action buttons
+  </Step>
+</Steps>
+
+## Dashboard Navigation
+
+Your ApplyTrack command center is organized into two main sections in the left sidebar:
+
+### Inventory Section
+
+- **Overview** - Dashboard with stats and recent activity
+- **Applications** - Full list of all tracked applications (shows count badge: 142)
+- **Interviews** - Manage scheduled interview rounds
+- **Analytics** - Performance insights and tracking metrics
+
+### Strategy Section
+
+- **Market Insights** - Industry trends and opportunity analysis
+- **Salary Engine** - Compensation benchmarking tools
+- **Interview Prep** - AI-powered preparation resources
+
+<Tip>
+The header includes a global search bar where you can search "roles, companies, or tasks" to quickly navigate your applications.
+</Tip>
+
+## Track Your First Application
+
+ApplyTrack offers multiple ways to track job applications:
+
+### Method 1: Automatic Browser Extension Capture
+
+<Steps>
+  <Step title="Install the browser extension">
+    After signup, you have instant access to the ApplyTrack browser extension.
+
+    The extension's content script automatically detects successful applications on 200+ job boards including:
+    - LinkedIn
+    - Indeed
+    - AngelList
+    - Greenhouse-powered career pages
+    - Lever-powered career pages
+    - And many more
+  </Step>
+
+  <Step title="Apply to a job on any supported platform">
+    Navigate to your preferred job board and submit an application as you normally would.
+
+    When you click "Submit Application" or equivalent, ApplyTrack's content script detects the submission.
+  </Step>
+
+  <Step title="Automatic capture confirmation">
+    The extension automatically captures:
+    - Company name
+    - Role/position title
+    - Application date and time
+    - Job posting URL
+    - Initial status: "Applied"
+
+    <Note>
+    No manual entry required. The application appears in your dashboard within seconds.
+    </Note>
+  </Step>
+</Steps>
+
+### Method 2: Manual Quick Add
+
+<Steps>
+  <Step title="Click the 'New Track' button">
+    From your dashboard, locate the **Quick Command** section in the right sidebar.
+
+    Click the **New Track** button (blue icon with briefcase).
+  </Step>
+
+  <Step title="Enter application details">
+    Fill in the manual entry form:
+
+    - **Company Name**: e.g., "Anthropic"
+    - **Role Title**: e.g., "AI Researcher"
+    - **Application Date**: When you applied
+    - **Job URL**: Link to the posting (optional)
+    - **Status**: Select from dropdown (Applied, Interviewing, Offer, etc.)
+  </Step>
+
+  <Step title="Save and track">
+    Click **Deploy Track** to add the application to your pipeline.
+
+    The application will appear in your Recent Activity feed and Applications list.
+  </Step>
+</Steps>
+
+### Method 3: Email Synchronization
+
+<Steps>
+  <Step title="Connect your email">
+    Click the **Sync Mail** button in the Quick Command section.
+
+    ApplyTrack supports secure OAuth integration with:
+    - Gmail
+    - Outlook
+  </Step>
+
+  <Step title="Grant OAuth permissions">
+    Authorize ApplyTrack to access your email threads.
+
+    <Warning>
+    ApplyTrack uses high-grade encryption and locally-hosted models for text processing. Your email data is never stored on external servers.
+    </Warning>
+  </Step>
+
+  <Step title="Automatic email tracking">
+    Once connected, ApplyTrack automatically:
+    - Detects application confirmation emails
+    - Tracks interview scheduling threads
+    - Updates application status based on recruiter responses
+    - Syncs offer letters and rejection notices
+
+    The header badge will show: "Syncing 24 Active threads"
+  </Step>
+</Steps>
+
+## View Your Applications
+
+After tracking your first application:
+
+<Steps>
+  <Step title="Check Recent Activity">
+    Your dashboard's **Recent Activity** section displays your most recent applications.
+
+    Each application card shows:
+    - Company initial icon (e.g., "A" for Anthropic)
+    - Company name and role title
+    - Time since application (e.g., "2h ago")
+    - Status badge (color-coded):
+      - **Applied**: Gray
+      - **Interviewing**: Blue
+      - **Technical Round**: Amber
+      - **Offer Extended**: Emerald
+    - Quick actions menu (three dots)
+
+    Example entry:
+    ```
+    [A] Anthropic
+        AI Researcher
+        2h ago | [INTERVIEWING] | •••
+    ```
+  </Step>
+
+  <Step title="Navigate to full Applications list">
+    Click **Applications** in the left sidebar to see all tracked applications.
+
+    The Applications view includes:
+    - Header showing "All (142)" and "Active (12)" with pulsing blue indicator
+    - Search and Filter controls
+    - Complete list of applications organized by date
+
+    <Tip>
+    Use the search bar at the top to filter by company name, role, or status.
+    </Tip>
+  </Step>
+
+  <Step title="Update application status">
+    Click on any application card to:
+    - View full details
+    - Update status manually
+    - Add notes and interview dates
+    - Track follow-up actions
+
+    Status options include:
+    - Applied
+    - Screening
+    - Interviewing
+    - Technical Round
+    - Culture Fit
+    - Offer Extended
+    - Accepted
+    - Rejected
+  </Step>
+</Steps>
+
+## Leverage AI Insights
+
+ApplyTrack includes an **AI Opportunity Engine** that provides strategic recommendations:
+
+### Dashboard Insights
+
+Look for the blue insight card at the bottom of your Recent Activity feed:
+
+```
+AI OPPORTUNITY ENGINE
+
+"OpenAI just posted 3 new roles that perfectly match your tech stack.
+Submit before the application cap to be in the first 10% of candidates."
+
+[Deploy Now →]
+```
+
+<Note>
+The AI analyzes:
+- Your application history
+- Response rates by company
+- Market trends and hiring patterns
+- Your profile optimization score
+</Note>
+
+### AI Strategic Recommendations
+
+The system provides actionable insights such as:
+
+- **Follow-up suggestions**: "Scale AI has a high response rate for your background. Send a follow-up note to increase interview success by 24%."
+- **Profile optimization**: "Match Rate +42%" after implementing AI suggestions
+- **Interview preparation**: Customized prep materials based on company and role
+
+## Track Upcoming Interviews
+
+The **Upcoming Rounds** section in the right sidebar shows:
+
+```
+[•] STARTS IN 1H
+Stripe
+Culture Fit • Today, 2:30 PM
+[Prepare with AI]
+
+[•] PREPARE NOW
+AirBnB
+Technical Interview • Tomorrow, 10:00 AM
+[Prepare with AI]
+```
+
+<Tip>
+Click **Prepare with AI** to access:
+- Company-specific interview questions
+- Technical challenge practice
+- Culture fit guidance
+- Mock interview scenarios
+</Tip>
+
+## Monitor Your Analytics
+
+Your dashboard provides real-time performance metrics:
+
+### Key Statistics
+
+- **Total Applied**: 142 applications (+12% month over month)
+- **Interviews**: 12 active (3 scheduled this week)
+- **Offer Rate**: 2.4% (vs. average 1.8%)
+- **Active Pipeline**: 18 applications in discussion
+
+### Network Health
+
+The bottom right widget shows:
+- **Response Rate Efficiency**: 82% (visual progress bar)
+- Comparison against your historical performance
+
+## Quick Command Actions
+
+Use these shortcut buttons for common tasks:
+
+- **New Track**: Manually add an application
+- **Sync Mail**: Connect or refresh email integration
+- **Resume Score**: Get AI feedback on your resume
+- **Search**: Quick search across all applications
+
+## Enable Pro Mode
+
+Click the **Pro Mode Active** button in the header (with sparkle icon) to access advanced features:
+
+- Priority AI processing
+- Advanced analytics and insights
+- Unlimited email sync
+- Custom automation rules
+- Premium interview prep content
+
+## Next Steps
+
+Now that you've tracked your first application:
+
+<CardGroup cols={2}>
+  <Card title="Configure Email Sync" icon="envelope" href="/integrations/gmail">
+    Set up automatic tracking from Gmail or Outlook
+  </Card>
+  <Card title="Install Browser Extension" icon="puzzle-piece" href="/extension/installation">
+    Enable one-click application capture on 200+ job boards
+  </Card>
+  <Card title="Customize Dashboard" icon="sliders" href="/dashboard/overview">
+    Personalize your tracking workflow and notifications
+  </Card>
+  <Card title="View Analytics" icon="chart-line" href="/features/analytics">
+    Deep dive into your application performance metrics
+  </Card>
+</CardGroup>
+
+## Getting Help
+
+<Info>
+Need assistance? Access support from:
+- **Settings menu** in the left sidebar
+- **Help icon** in the dashboard header
+- **Contact support** at support@applytrack.com
+</Info>
+
+You're now ready to maximize your job search with ApplyTrack's intelligent tracking engine.

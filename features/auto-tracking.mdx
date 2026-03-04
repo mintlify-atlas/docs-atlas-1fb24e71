@@ -1,0 +1,195 @@
+---
+title: 'Automatic Application Detection'
+description: 'Learn how ApplyTrack automatically captures and tracks job applications across 200+ job boards'
+icon: 'mouse-pointer-2'
+---
+
+## Overview
+
+ApplyTrack's automatic application detection eliminates manual data entry by capturing job applications in real-time as you submit them. Our high-speed content script works silently in the background, detecting successful applications across 200+ job boards.
+
+<CardGroup cols={2}>
+  <Card title="Instant Capture" icon="zap">
+    Automatic detection triggers the moment you click "Submit" on any supported job board
+  </Card>
+  <Card title="Zero Manual Entry" icon="ban">
+    No forms to fill, no copy-paste required. Just apply normally and watch your dashboard update
+  </Card>
+  <Card title="200+ Job Boards" icon="globe">
+    Works with LinkedIn, Indeed, Greenhouse, Lever, and 200+ other platforms
+  </Card>
+  <Card title="Metadata Capture" icon="database">
+    Extracts company name, role, salary range, and application timestamp automatically
+  </Card>
+</CardGroup>
+
+## How It Works
+
+The automatic tracking system operates in three phases:
+
+<Accordion title="Step 1: Browser Extension Bridge">
+  
+  Install the ApplyTrack browser extension to create a bridge between your application flow and your dashboard.
+  
+  ```javascript
+  // The extension monitors DOM events for job application submissions
+  // across supported platforms
+  {
+    "trigger": "form[action*='apply']",
+    "event": "submit",
+    "capture": ["company", "role", "salary", "location"]
+  }
+  ```
+  
+  The extension integrates seamlessly with your browser and requires minimal permissions.
+
+</Accordion>
+
+<Accordion title="Step 2: Automated Intelligence">
+  
+  Every "Submit" triggers an instant metadata capture. The system extracts:
+  
+  - **Company Name**: Parsed from the job posting page
+  - **Role Title**: Captured from the application form
+  - **Application Timestamp**: Precise time of submission
+  - **Job Board Source**: Which platform you applied through
+  - **Salary Range**: If available on the posting (optional)
+  - **Location**: Remote, hybrid, or on-site details
+  
+  This data is encrypted and transmitted to your dashboard in milliseconds.
+
+</Accordion>
+
+<Accordion title="Step 3: Dashboard Synchronization">
+  
+  Your application appears instantly in the dashboard with:
+  
+  - **Status**: Initially marked as "Applied"
+  - **Timeline Entry**: Added to your activity feed
+  - **Stats Update**: Total applications counter increments
+  - **AI Analysis**: Background processing begins for insights
+  
+  ```typescript
+  // Recent applications display format from source code
+  const recentApplications = [
+    { 
+      company: "Anthropic", 
+      role: "AI Researcher", 
+      status: "Interviewing", 
+      time: "2h ago", 
+      color: "text-blue-600", 
+      bg: "bg-blue-50" 
+    },
+    { 
+      company: "OpenAI", 
+      role: "Software Engineer", 
+      status: "Applied", 
+      time: "5h ago", 
+      color: "text-zinc-500", 
+      bg: "bg-zinc-50" 
+    }
+  ];
+  ```
+
+</Accordion>
+
+## Supported Platforms
+
+ApplyTrack works with all major job boards and ATS platforms:
+
+<CardGroup cols={3}>
+  <Card title="Job Boards" icon="briefcase">
+    LinkedIn, Indeed, Glassdoor, AngelList, Wellfound
+  </Card>
+  <Card title="ATS Systems" icon="building">
+    Greenhouse, Lever, Workday, iCIMS, SmartRecruiters
+  </Card>
+  <Card title="Company Sites" icon="link">
+    Direct application pages with supported ATS integrations
+  </Card>
+</CardGroup>
+
+## Free vs Premium Tracking
+
+<Accordion title="Free Plan - Basic Access">
+  
+  The free plan includes:
+  
+  - **5 tracks per month**: Track up to 5 applications monthly
+  - **Automated detection**: Full auto-tracking functionality
+  - **Standard dashboard**: Access to overview and application list
+  - **Manual entry option**: Add applications manually if extension is unavailable
+  
+  Perfect for light job seekers or those testing the platform.
+
+</Accordion>
+
+<Accordion title="Premium Plan - Unlimited Tracking">
+  
+  Premium unlocks:
+  
+  - **Unlimited tracking**: No monthly application limit
+  - **Priority capture**: Faster metadata extraction
+  - **Enhanced metadata**: Additional fields like team size, tech stack
+  - **Historical import**: Bulk import past applications
+  - **Advanced filtering**: Search by any captured field
+  
+  **Price**: $9/month
+
+</Accordion>
+
+<Accordion title="Platinum Plan - Maximum Output">
+  
+  Everything in Premium plus:
+  
+  - **Portfolio scoring**: AI analyzes application quality
+  - **Network referrals**: Connection matching for internal referrals
+  - **Executive strategy**: Personalized career path recommendations
+  - **Priority support**: Dedicated assistance
+  
+  **Price**: $19/month
+
+</Accordion>
+
+## Troubleshooting
+
+<Warning>
+  If an application doesn't appear in your dashboard within 30 seconds, check:
+  - Extension is installed and active
+  - You're logged into ApplyTrack
+  - The job board is on our supported platforms list
+  - Your browser allows extension permissions
+</Warning>
+
+### Manual Entry Fallback
+
+If automatic detection fails, you can manually add an application:
+
+1. Click **"New Track"** in Quick Command sidebar
+2. Enter company name, role, and application date
+3. Save to add to your pipeline
+
+The AI insights and email sync features will still work with manually entered applications.
+
+## Privacy & Security
+
+<Info>
+  ApplyTrack uses **high-grade encryption** for all data transmission. The browser extension only reads data when you click "Submit" on a job application, and never accesses other browsing activity.
+</Info>
+
+Your application data is:
+- **Encrypted in transit** with TLS 1.3
+- **Encrypted at rest** using AES-256
+- **Never sold or shared** with third parties
+- **Locally processed** using on-device AI models when possible
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Email Sync" icon="mail" href="/features/email-sync">
+    Connect Gmail or Outlook to automatically track recruiter responses
+  </Card>
+  <Card title="Dashboard Guide" icon="layout-dashboard" href="/features/dashboard">
+    Learn how to navigate your application dashboard
+  </Card>
+</CardGroup>

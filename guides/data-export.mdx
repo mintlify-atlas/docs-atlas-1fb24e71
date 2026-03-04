@@ -1,0 +1,744 @@
+---
+title: 'Exporting Application Data'
+description: 'Export your job application data for analysis, backup, and integration with external tools'
+icon: 'download'
+---
+
+## Overview
+
+ApplyTrack allows you to export all your application data, metrics, and insights in multiple formats. Use exports for deeper analysis, backup purposes, portfolio creation, or integration with external analytics tools.
+
+## Supported Export Formats
+
+ApplyTrack supports three export formats:
+
+<CardGroup cols={3}>
+  <Card title="CSV" icon="file-csv">
+    Spreadsheet-compatible format ideal for Excel, Google Sheets, and data analysis
+  </Card>
+  <Card title="JSON" icon="code">
+    Structured data format perfect for developers and API integrations
+  </Card>
+  <Card title="PDF" icon="file-pdf">
+    Professional report format for presentations and portfolio documentation
+  </Card>
+</CardGroup>
+
+## Quick Export
+
+### From Dashboard
+
+Export your data in seconds:
+
+<Steps>
+  <Step title="Access Export">
+    Navigate to Settings → Data Export
+    
+    Or use Quick Command:
+    ```
+    Dashboard → Quick Command → Export Data
+    ```
+  </Step>
+  
+  <Step title="Select Format">
+    Choose your export format:
+    - CSV (spreadsheet)
+    - JSON (structured data)
+    - PDF (report)
+  </Step>
+  
+  <Step title="Choose Data Range">
+    Select time period:
+    - Last 30 days
+    - Last 90 days
+    - Last 6 months
+    - All time
+    - Custom date range
+  </Step>
+  
+  <Step title="Download">
+    Click **Generate Export**
+    
+    Download completes automatically
+  </Step>
+</Steps>
+
+<Tip>
+  Exports include all data up to the moment of generation, including real-time metrics
+</Tip>
+
+## CSV Export
+
+### What's Included
+
+CSV exports contain comprehensive application data:
+
+**Application Details:**
+- Company name
+- Job role/title
+- Application date and time
+- Status (Applied, Interviewing, Offer, etc.)
+- Job board source
+- Application URL
+
+**Timeline Data:**
+- Application submitted date
+- First response date
+- Interview dates (multiple stages)
+- Offer date
+- Response time (days)
+
+**Metrics:**
+- Days in current stage
+- Total days in pipeline
+- Number of interview rounds
+- Email thread count
+- Follow-up count
+
+**Custom Fields:**
+- Tags and labels
+- Personal notes
+- Priority level
+- Salary range (if tracked)
+
+### CSV Structure
+
+Example CSV format:
+
+```csv
+Company,Role,Status,Applied_Date,Response_Date,Response_Time_Days,Interview_Date,Offer_Date,Source,Notes
+Anthropic,AI Researcher,Interviewing,2026-03-02 14:30,2026-03-03 09:15,0.8,2026-03-10 14:00,,LinkedIn,Great culture fit
+OpenAI,Software Engineer,Applied,2026-03-02 09:15,,,,,Company Website,
+Scale AI,Product Designer,Offer Extended,2026-03-01 11:00,2026-03-01 16:30,0.2,2026-03-05 10:00,2026-03-08 15:00,Indeed,Competitive offer
+Tesla,Senior Developer,Technical Round,2026-02-28 08:45,2026-02-29 10:00,1.1,2026-03-06 13:00,,AngelList,Tech stack match
+```
+
+### Using CSV Exports
+
+**In Excel/Google Sheets:**
+
+<Accordion title="Create Pivot Tables">
+  Analyze applications by:
+  - Company
+  - Status
+  - Month
+  - Job board source
+  - Response time ranges
+</Accordion>
+
+<Accordion title="Build Custom Charts">
+  Visualize:
+  - Applications over time
+  - Response rates by source
+  - Interview conversion funnel
+  - Time-to-offer distribution
+</Accordion>
+
+<Accordion title="Calculate Custom Metrics">
+  Formula examples:
+  ```excel
+  // Average response time
+  =AVERAGE(Response_Time_Days)
+  
+  // Interview conversion rate
+  =COUNTIF(Status,"Interviewing")/COUNTA(Company)
+  
+  // Best performing job boards
+  =COUNTIFS(Source,"LinkedIn",Status,"Interviewing")
+  ```
+</Accordion>
+
+**In Data Analysis Tools:**
+
+<CodeGroup>
+```python Python (pandas)
+import pandas as pd
+
+# Load ApplyTrack export
+df = pd.read_csv('applytrack_export.csv')
+
+# Calculate response rate by job board
+response_rates = df.groupby('Source').agg({
+    'Response_Date': lambda x: x.notna().sum() / len(x)
+}).round(3)
+
+print(response_rates)
+
+# Find fastest-responding companies
+df['Response_Time_Days'].nsmallest(10)
+
+# Conversion funnel analysis
+funnel = df['Status'].value_counts()
+print(f"Applied: {funnel.get('Applied', 0)}")
+print(f"Interviewing: {funnel.get('Interviewing', 0)}")
+print(f"Offer: {funnel.get('Offer Extended', 0)}")
+```
+
+```r R (tidyverse)
+library(tidyverse)
+
+# Load ApplyTrack export
+data <- read_csv('applytrack_export.csv')
+
+# Response rate by month
+data %>%
+  mutate(month = floor_date(Applied_Date, 'month')) %>%
+  group_by(month) %>%
+  summarise(
+    applications = n(),
+    responses = sum(!is.na(Response_Date)),
+    response_rate = responses / applications
+  )
+
+# Average time to interview
+data %>%
+  filter(!is.na(Interview_Date)) %>%
+  summarise(avg_days = mean(Response_Time_Days))
+```
+</CodeGroup>
+
+## JSON Export
+
+### What's Included
+
+JSON exports provide deeply nested, structured data:
+
+```json
+{
+  "export_metadata": {
+    "generated_at": "2026-03-04T10:30:00Z",
+    "user_id": "user_abc123",
+    "date_range": {
+      "start": "2025-09-01",
+      "end": "2026-03-04"
+    },
+    "total_applications": 142
+  },
+  "applications": [
+    {
+      "id": "app_xyz789",
+      "company": "Anthropic",
+      "role": "AI Researcher",
+      "status": "interviewing",
+      "timeline": {
+        "applied": "2026-03-02T14:30:00Z",
+        "first_response": "2026-03-03T09:15:00Z",
+        "interviews": [
+          {
+            "round": 1,
+            "type": "Culture Fit",
+            "date": "2026-03-10T14:00:00Z",
+            "status": "scheduled"
+          }
+        ]
+      },
+      "source": "LinkedIn",
+      "url": "https://anthropic.com/careers/ai-researcher",
+      "metrics": {
+        "response_time_hours": 18.75,
+        "days_in_pipeline": 2,
+        "email_threads": 3,
+        "follow_ups_sent": 0
+      },
+      "tags": ["high-priority", "tech-match"],
+      "notes": "Great culture fit. Team lead impressed with research background.",
+      "contacts": [
+        {
+          "name": "Jane Smith",
+          "role": "Recruiter",
+          "email": "jane@anthropic.com"
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "total_applied": 142,
+    "active_pipeline": 18,
+    "interviews_scheduled": 12,
+    "offers_received": 3,
+    "response_rate": 0.82,
+    "average_response_time_days": 3.2,
+    "conversion_rates": {
+      "application_to_response": 0.127,
+      "response_to_interview": 0.667,
+      "interview_to_offer": 0.024
+    }
+  },
+  "ai_insights": {
+    "top_performing_sources": [
+      {"source": "LinkedIn", "response_rate": 0.18},
+      {"source": "Company Website", "response_rate": 0.15},
+      {"source": "AngelList", "response_rate": 0.12}
+    ],
+    "optimal_application_times": {
+      "best_day": "Tuesday",
+      "best_hour": 9,
+      "response_lift": 1.34
+    },
+    "recommendations": [
+      "OpenAI just posted 3 new roles that perfectly match your tech stack",
+      "Companies in your target list respond 34% faster to Tuesday morning applications",
+      "Applications followed up after 7 days show 2.3x higher response rates"
+    ]
+  }
+}
+```
+
+### Using JSON Exports
+
+**Developer Integrations:**
+
+<CodeGroup>
+```javascript Node.js
+const fs = require('fs');
+
+// Load ApplyTrack export
+const data = JSON.parse(
+  fs.readFileSync('applytrack_export.json', 'utf8')
+);
+
+// Get active applications
+const active = data.applications.filter(
+  app => ['applied', 'interviewing'].includes(app.status)
+);
+
+console.log(`Active pipeline: ${active.length}`);
+
+// Calculate average response time
+const avgResponse = data.applications
+  .filter(app => app.metrics.response_time_hours)
+  .reduce((sum, app) => sum + app.metrics.response_time_hours, 0) / 
+  data.applications.length;
+
+console.log(`Avg response time: ${(avgResponse / 24).toFixed(1)} days`);
+
+// Top companies by stage
+const byCompany = data.applications.reduce((acc, app) => {
+  acc[app.company] = acc[app.company] || [];
+  acc[app.company].push(app);
+  return acc;
+}, {});
+```
+
+```python Python
+import json
+
+# Load ApplyTrack export
+with open('applytrack_export.json', 'r') as f:
+    data = json.load(f)
+
+# Extract AI recommendations
+for rec in data['ai_insights']['recommendations']:
+    print(f"✨ {rec}")
+
+# Get conversion funnel
+stats = data['statistics']['conversion_rates']
+print(f"\nConversion Funnel:")
+print(f"Applied → Response: {stats['application_to_response']:.1%}")
+print(f"Response → Interview: {stats['response_to_interview']:.1%}")
+print(f"Interview → Offer: {stats['interview_to_offer']:.1%}")
+
+# Find applications needing follow-up
+from datetime import datetime, timedelta
+
+now = datetime.now()
+for app in data['applications']:
+    applied = datetime.fromisoformat(app['timeline']['applied'].replace('Z', '+00:00'))
+    if not app['timeline'].get('first_response') and (now - applied).days >= 7:
+        print(f"Follow up: {app['company']} - {app['role']}")
+```
+</CodeGroup>
+
+**API Integrations:**
+
+Use JSON exports to feed data into:
+- Notion databases
+- Airtable bases
+- Custom web dashboards
+- Slack/Discord bots for notifications
+- Portfolio websites
+
+## PDF Export
+
+### What's Included
+
+Professionally formatted PDF reports contain:
+
+**Executive Summary:**
+- Total applications: 142
+- Active pipeline: 18
+- Response rate: 82%
+- Interviews: 12 (3 this week)
+- Offers: 3 (2.4% rate)
+
+**Detailed Application List:**
+Sorted by status with full timeline:
+- Company and role
+- Application date
+- Current status
+- Days in pipeline
+- Next steps
+
+**Performance Metrics:**
+- Month-over-month growth: +12%
+- Response rate trends (chart)
+- Interview conversion funnel (chart)
+- Offer rate benchmarking
+
+**AI Insights:**
+- Weekly executive summary
+- Strategic recommendations
+- Optimization opportunities
+- Top performing strategies
+
+**Timeline Visualization:**
+Gantt-style chart showing:
+- Application submission dates
+- Interview schedules
+- Offer timelines
+- Pipeline progression
+
+### Use Cases for PDF Export
+
+<CardGroup cols={2}>
+  <Card title="Career Coaching" icon="user-tie">
+    Share comprehensive report with career coaches or mentors for guidance
+  </Card>
+  <Card title="Presentations" icon="presentation">
+    Include in portfolio or case studies demonstrating systematic job search
+  </Card>
+  <Card title="Documentation" icon="file-text">
+    Keep professional record of job search journey and outcomes
+  </Card>
+  <Card title="Accountability" icon="chart-line">
+    Share progress reports with accountability partners or job search groups
+  </Card>
+</CardGroup>
+
+## Automated Exports
+
+<Note>
+  Scheduled exports available on Premium ($9/mo) and Platinum ($19/mo) plans
+</Note>
+
+### Setting Up Automated Exports
+
+Schedule regular exports:
+
+<Steps>
+  <Step title="Navigate to Export Settings">
+    ```
+    Settings → Data Export → Automated Exports
+    ```
+  </Step>
+  
+  <Step title="Configure Schedule">
+    Choose frequency:
+    - Daily (every morning)
+    - Weekly (Monday mornings)
+    - Monthly (1st of month)
+    - Custom schedule
+  </Step>
+  
+  <Step title="Select Format & Destination">
+    Format: CSV, JSON, or PDF
+    
+    Delivery options:
+    - Email attachment
+    - Google Drive sync
+    - Dropbox sync
+    - Webhook URL (JSON only)
+  </Step>
+  
+  <Step title="Set Filters (Optional)">
+    Export only:
+    - Active applications
+    - Specific date range
+    - Certain statuses
+    - Tagged applications
+  </Step>
+</Steps>
+
+### Automated Export Examples
+
+**Weekly Progress Report:**
+```
+Schedule: Every Monday, 8:00 AM
+Format: PDF
+Destination: Email
+Content: Last 7 days activity + AI insights
+```
+
+**Daily Backup:**
+```
+Schedule: Every day, 11:59 PM
+Format: JSON
+Destination: Google Drive
+Content: Complete application database
+```
+
+**Monthly Analytics:**
+```
+Schedule: 1st of month, 9:00 AM
+Format: CSV
+Destination: Email
+Content: Previous month applications + metrics
+```
+
+## Data Export Integrations
+
+### Google Sheets Live Sync
+
+<Note>
+  Available on Platinum Elite ($19/mo) plan
+</Note>
+
+Connect ApplyTrack directly to Google Sheets:
+
+**Setup:**
+1. Settings → Integrations → Google Sheets
+2. Authorize Google account
+3. Select or create spreadsheet
+4. Choose sync frequency (Real-time, Hourly, Daily)
+
+**Benefits:**
+- Always up-to-date data
+- Collaborate with mentors/coaches
+- Build custom formulas and charts
+- No manual export needed
+
+### Zapier Integration
+
+Connect ApplyTrack to 5,000+ apps:
+
+**Popular Zaps:**
+- New application → Add row to Airtable
+- Interview scheduled → Create Google Calendar event
+- Offer received → Send Slack notification
+- Weekly summary → Email to mentor
+
+**Setup:**
+```
+Settings → Integrations → Zapier → Connect Account
+```
+
+### API Access
+
+<Note>
+  API access available on Platinum Elite ($19/mo) plan
+</Note>
+
+Build custom integrations:
+
+**Endpoint:**
+```
+GET https://api.applytrack.ai/v1/applications/export
+```
+
+**Authentication:**
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     "https://api.applytrack.ai/v1/applications/export?format=json"
+```
+
+**Query Parameters:**
+- `format`: csv, json, pdf
+- `start_date`: YYYY-MM-DD
+- `end_date`: YYYY-MM-DD
+- `status`: applied, interviewing, offer, etc.
+- `include_metrics`: true/false
+- `include_ai_insights`: true/false
+
+See [Data Export Guide](/guides/data-export) for complete details.
+
+## Export Use Cases
+
+### Portfolio Documentation
+
+**Showcase systematic approach:**
+
+Export PDF report demonstrating:
+- Consistent application volume (142 applications)
+- Strong response rate (82% efficiency)
+- High conversion rate (2.4% vs 1.8% average)
+- Strategic use of AI insights
+
+**Add to portfolio:**
+"Utilized data-driven job search strategies with ApplyTrack AI, achieving 2.4% offer rate (33% above average) through systematic application tracking and optimization."
+
+### Career Analytics
+
+**Identify patterns over time:**
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load 6 months of exports
+df = pd.read_csv('applytrack_6months.csv')
+
+# Response rate by month
+df['month'] = pd.to_datetime(df['Applied_Date']).dt.to_period('M')
+monthly = df.groupby('month').agg({
+    'Company': 'count',
+    'Response_Date': lambda x: x.notna().sum()
+})
+monthly['response_rate'] = monthly['Response_Date'] / monthly['Company']
+
+# Plot trend
+monthly['response_rate'].plot(kind='line', marker='o')
+plt.title('Response Rate Trend Over 6 Months')
+plt.ylabel('Response Rate')
+plt.show()
+```
+
+### Backup & Data Portability
+
+**Regular backups:**
+
+Schedule automated JSON exports to:
+- Local backup drive
+- Cloud storage (Google Drive, Dropbox)
+- Version control (private GitHub repo)
+
+**Data portability:**
+- Switch to another tracking tool
+- Share with future employers
+- Analyze in external tools
+- Archive for future reference
+
+### Coaching & Collaboration
+
+**Share with career coaches:**
+
+Export PDF report showing:
+- Complete application history
+- Response rate metrics
+- Interview conversion data
+- AI-generated insights
+- Areas for improvement
+
+**Accountability partners:**
+
+Schedule weekly CSV exports to:
+- Track mutual progress
+- Compare strategies
+- Share successful approaches
+- Maintain motivation
+
+## Data Privacy & Security
+
+<Warning>
+  Exports contain sensitive personal data - handle with care
+</Warning>
+
+**What's included in exports:**
+- Company names and roles
+- Contact information (recruiters)
+- Personal notes
+- Application URLs
+- Email metadata (but not full content)
+- Salary information (if tracked)
+
+**Not included in exports:**
+- Your password or authentication tokens
+- Full email contents (only metadata)
+- Payment information
+- Browser extension data
+- Other users' data
+
+**Best practices:**
+- Store exports in encrypted drives
+- Use secure cloud storage with 2FA
+- Don't share exports publicly
+- Redact sensitive info before sharing
+- Delete old exports regularly
+
+**GDPR & Data Rights:**
+
+Exports fulfill your right to data portability under GDPR/CCPA. You can:
+- Export all your data at any time
+- Delete your account and data
+- Request specific data removal
+
+See [Data Privacy](/resources/data-privacy) for details.
+
+## Export Limits & Quotas
+
+### By Plan Tier
+
+| Feature | Free | Premium | Platinum |
+|---------|------|---------|----------|
+| Manual exports | 5/month | Unlimited | Unlimited |
+| Automated exports | ❌ | ✅ | ✅ |
+| Google Sheets sync | ❌ | ❌ | ✅ |
+| API access | ❌ | ❌ | ✅ |
+| Export history | 30 days | 90 days | Forever |
+| Max export size | 100 apps | Unlimited | Unlimited |
+
+### Export Performance
+
+**Generation times:**
+- CSV: 1-3 seconds (up to 10,000 applications)
+- JSON: 2-5 seconds (includes nested data)
+- PDF: 5-15 seconds (includes charts)
+
+**File sizes (typical):**
+- 100 applications: ~50 KB CSV, ~200 KB JSON, ~500 KB PDF
+- 500 applications: ~250 KB CSV, ~1 MB JSON, ~2 MB PDF
+- 1,000+ applications: ~500 KB CSV, ~2 MB JSON, ~4 MB PDF
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Export fails or times out">
+    **Solutions:**
+    - Try smaller date range
+    - Export in CSV instead of PDF (faster)
+    - Check internet connection
+    - Try again in off-peak hours
+    
+    If issue persists: Settings → Help → Contact Support
+  </Accordion>
+  
+  <Accordion title="CSV not opening in Excel">
+    **Solutions:**
+    - Use "Import Data" instead of double-click
+    - Check encoding (should be UTF-8)
+    - Open in Google Sheets instead
+    - Try opening with text editor first
+  </Accordion>
+  
+  <Accordion title="JSON structure questions">
+    **Resources:**
+    - View [JSON Schema](/api-reference/schemas)
+    - Use online JSON viewer (jsonviewer.stack.hu)
+    - Check [Data Export Guide](/guides/data-export)
+    - Contact support with specific questions
+  </Accordion>
+  
+  <Accordion title="Automated export not received">
+    **Check:**
+    - Email spam/promotions folder
+    - Export schedule settings
+    - Google Drive/Dropbox connection
+    - Export history log
+    
+    Settings → Data Export → Automated Exports → View Log
+  </Accordion>
+</AccordionGroup>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="AI Strategy" icon="sparkles" href="/guides/ai-strategy">
+    Leverage AI insights from exports
+  </Card>
+  <Card title="Optimization Tips" icon="chart-line" href="/guides/optimization-tips">
+    Analyze exported data for improvements
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/overview">
+    Build custom integrations
+  </Card>
+</CardGroup>

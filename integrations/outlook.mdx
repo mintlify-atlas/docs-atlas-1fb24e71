@@ -1,0 +1,354 @@
+---
+title: Outlook Integration
+description: Connect your Outlook or Microsoft 365 account to automatically track job application emails and update statuses in real-time
+---
+
+## Overview
+
+The Outlook integration uses Microsoft's secure OAuth 2.0 authentication to automatically monitor email threads related to your job applications. ApplyTrack intelligently detects recruiter communications and updates your application pipeline without manual intervention.
+
+<Info>
+**Enterprise-Grade Security:** We use Microsoft's OAuth 2.0 protocol and never store your Outlook password. Your credentials remain secure and you can revoke access at any time.
+</Info>
+
+## Features
+
+- **Automatic Thread Tracking**: Monitors all job-related email conversations across your inbox
+- **Smart Status Detection**: AI-powered analysis of recruiter emails to update application states
+- **Real-time Synchronization**: Email updates reflected in your dashboard within seconds
+- **OAuth 2.0 Security**: Industry-standard Microsoft authentication
+- **No Password Storage**: Your Outlook credentials never touch our servers
+- **Microsoft 365 Compatible**: Works with personal Outlook.com and enterprise Microsoft 365 accounts
+
+## How It Works
+
+ApplyTrack's intelligent email engine continuously monitors your Outlook inbox for job application communications and automatically progresses your application through your pipeline:
+
+- **Applied** → Application confirmation receipts
+- **Interviewing** → Interview scheduling requests or recruiter outreach
+- **Offer Extended** → Offer letters and compensation proposals
+- **Rejected** → Position-filled or rejection notifications
+
+## Setup Process
+
+<Steps>
+  <Step title="Access Integration Settings">
+    In your ApplyTrack dashboard, navigate to **Settings** from the sidebar, then select **Integrations**.
+  </Step>
+  
+  <Step title="Choose Outlook">
+    In the Email Integrations section, click the **Connect Outlook** button.
+  </Step>
+  
+  <Step title="Microsoft Authentication">
+    You'll be redirected to Microsoft's secure login page. Sign in with your Outlook.com or Microsoft 365 account.
+    
+    <Warning>
+    Ensure you're logging in with the email account where you receive job application correspondence.
+    </Warning>
+  </Step>
+  
+  <Step title="Authorize Permissions">
+    Review the permissions ApplyTrack requests:
+    - **Read your email**: To identify job-related communications
+    - **Read mail metadata**: To track email threads and sender information
+    - **Maintain access to data**: To keep your dashboard in sync
+    
+    Click **Accept** to grant these permissions.
+  </Step>
+  
+  <Step title="Verify Connection">
+    After authorization, you'll return to ApplyTrack with a confirmation message.
+    
+    The initial email sync begins immediately and typically processes your last 30 days of emails within 2-3 minutes.
+  </Step>
+</Steps>
+
+## Email Patterns That Trigger Updates
+
+ApplyTrack uses advanced natural language processing to recognize common recruiter email patterns and automatically update your application status:
+
+### Application Receipt Confirmation
+```
+From: careers@company.com
+Subject: We've received your application - Product Manager
+
+Thank you for your interest in the Product Manager position.
+Our team is reviewing your application...
+```
+**Triggers**: Status updated to **Applied**
+
+### Interview Scheduling Request
+```
+From: jane.recruiter@company.com
+Subject: Interview Opportunity - Senior Engineer Role
+
+Hi [Name],
+
+I reviewed your application and would like to schedule a call
+to discuss your experience...
+```
+**Triggers**: Status updated to **Interviewing**
+
+### Offer Communication
+```
+From: talent@company.com
+Subject: Offer Letter - Data Scientist Position
+
+Congratulations! We're pleased to extend an offer for the
+Data Scientist role. Please find the offer letter attached...
+```
+**Triggers**: Status updated to **Offer Extended**
+
+### Rejection Notification
+```
+From: no-reply@company.com
+Subject: Application Status Update
+
+Thank you for your interest in our company. After careful
+consideration, we've decided to pursue other candidates...
+```
+**Triggers**: Status updated to **Rejected**
+
+### Additional Interview Rounds
+```
+From: hiring.manager@company.com
+Subject: Next steps - Technical Interview
+
+You did great in the initial screening! Let's schedule
+your technical interview for next week...
+```
+**Triggers**: Status remains **Interviewing**, adds note about technical round
+
+## Security & Privacy
+
+### Microsoft OAuth 2.0 Protocol
+ApplyTrack integrates with Outlook using Microsoft's OAuth 2.0, which ensures:
+- Your Outlook password is never shared with ApplyTrack
+- You grant specific, limited permissions only
+- Access can be revoked anytime from Microsoft Account settings
+- Tokens are automatically refreshed for seamless operation
+
+### Enterprise-Grade Encryption
+- **In Transit**: All data transmitted using TLS 1.3 encryption
+- **At Rest**: Email metadata encrypted with AES-256
+- **Minimal Data**: We store only sender, subject, date, and thread ID - not full message bodies
+- **GDPR Compliant**: Full compliance with European data protection regulations
+
+### What We Don't Do
+- We never access emails unrelated to job hunting
+- We don't read personal or confidential communications
+- We don't store your Outlook password
+- We cannot send, modify, or delete your emails
+- We don't share your data with third parties
+
+<Note>
+All email classification happens using locally-hosted AI models. Your email content never leaves our secure, encrypted infrastructure.
+</Note>
+
+## Troubleshooting
+
+### Connection Failed
+
+**Issue**: "Unable to connect to Outlook" error
+
+**Solutions**:
+1. Verify you're using the correct Microsoft account
+2. Check if browser pop-ups are blocked
+3. Ensure cookies are enabled for login.microsoftonline.com
+4. Try using a different browser (Chrome or Edge recommended)
+5. Disable browser extensions that might interfere with OAuth
+
+### Emails Not Syncing
+
+**Issue**: Recent emails don't appear or trigger status updates
+
+**Solutions**:
+1. Check **Last Sync** timestamp in Settings → Integrations
+2. Click **Sync Now** to trigger immediate synchronization
+3. Verify emails aren't in Junk/Spam folder
+4. Check if email rules are moving messages to other folders
+5. Ensure sender domains aren't blocked
+
+### Authentication Error
+
+**Issue**: "Authentication failed" or "Token expired" message
+
+**Solutions**:
+1. Click **Reconnect** in ApplyTrack settings
+2. Clear browser cache and cookies
+3. Check Microsoft Account → Security → App permissions for ApplyTrack
+4. Ensure two-factor authentication codes are entered correctly
+5. Verify your Microsoft 365 admin hasn't blocked third-party apps (enterprise accounts)
+
+### Microsoft 365 Admin Consent Required
+
+**Issue**: "Admin consent required" error for enterprise accounts
+
+**Solutions**:
+1. Contact your IT department to approve ApplyTrack
+2. Provide them with our [Admin Consent Guide](/integrations/outlook#admin-consent)
+3. Alternatively, use a personal Outlook.com account for job hunting
+4. Request your admin add ApplyTrack to approved applications list
+
+### Partial Sync Issues
+
+**Issue**: Some emails sync but others don't
+
+**Solutions**:
+1. Check if missing emails are in subfolders (we only monitor Inbox by default)
+2. Premium users can enable subfolder monitoring in Advanced Settings
+3. Verify email subject lines contain job-related keywords
+4. Check Activity Log to see if emails were processed but not matched to applications
+
+### Duplicate Applications Created
+
+**Issue**: Multiple entries for the same job from forwarded emails
+
+**Solutions**:
+1. Check if emails were forwarded or CC'd, creating multiple threads
+2. Merge duplicate applications from the application detail page
+3. Enable "Duplicate Detection" in Settings → Integrations → Advanced
+4. Mark one application as primary to consolidate email history
+
+## Managing Your Connection
+
+### Monitoring Sync Activity
+View your Outlook integration status at **Settings → Integrations**:
+- **Connection Status**: Active, Disconnected, or Authentication Required
+- **Last Successful Sync**: Timestamp of most recent email check
+- **Threads Monitored**: Total number of job-related email conversations
+- **Sync History**: Log of recent synchronization events
+
+### Disconnecting Outlook
+To remove the Outlook integration:
+1. Navigate to **Settings → Integrations**
+2. Locate Outlook and click **Disconnect**
+3. Confirm disconnection in the modal dialog
+4. Optionally revoke access from [Microsoft Account Permissions](https://account.microsoft.com/privacy/app-access)
+
+<Warning>
+Disconnecting Outlook stops new email syncing but preserves your existing application data and email history.
+</Warning>
+
+### Reconnecting After Token Expiry
+OAuth tokens occasionally expire. To reconnect:
+1. Click the **Reconnect** button when prompted
+2. Complete Microsoft authentication again
+3. Grant the same permissions as initial setup
+4. Your application history and settings are preserved
+
+## Premium Features
+
+<CardGroup cols={2}>
+  <Card title="Real-time Sync" icon="bolt">
+    Premium members receive email updates in 30-60 seconds vs. 5-10 minutes for free tier
+  </Card>
+  
+  <Card title="Subfolder Monitoring" icon="folder-tree">
+    Monitor job emails across all Outlook folders, not just your main inbox
+  </Card>
+  
+  <Card title="Custom Email Rules" icon="sliders">
+    Create advanced filters to categorize emails and trigger custom status workflows
+  </Card>
+  
+  <Card title="AI Follow-up Assistant" icon="robot">
+    Generate personalized follow-up emails based on recruiter communication style
+  </Card>
+  
+  <Card title="Email Templates" icon="file-lines">
+    Access library of proven recruiter response templates
+  </Card>
+  
+  <Card title="Priority Support" icon="life-ring">
+    Get expedited support for integration and sync issues
+  </Card>
+</CardGroup>
+
+## Microsoft 365 Enterprise
+
+### Admin Considerations
+If you're an IT administrator evaluating ApplyTrack for your organization:
+
+- **Permissions Required**: `Mail.Read`, `Mail.ReadBasic`, `offline_access`
+- **Data Access**: Read-only access to user email metadata
+- **Compliance**: SOC 2 Type II certified, GDPR compliant
+- **App ID**: Contact support for our Microsoft App ID for allowlisting
+
+### User Experience
+Enterprise users benefit from:
+- Single Sign-On (SSO) compatibility
+- Conditional access policy support
+- Integration with Microsoft's security monitoring
+- Audit log integration for compliance tracking
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Does this work with Microsoft 365 business accounts?">
+    Yes! ApplyTrack works with personal Outlook.com accounts, Microsoft 365 Personal/Family, and Microsoft 365 Business/Enterprise accounts. Some enterprise accounts may require admin consent before connection.
+  </Accordion>
+  
+  <Accordion title="How far back does the initial sync go?">
+    The first sync processes emails from the last 30 days. Premium users can request extended historical sync up to 90 days. After initial sync, all new emails are monitored automatically.
+  </Accordion>
+  
+  <Accordion title="Can I connect both Outlook and Gmail?">
+    Absolutely! You can connect both email providers simultaneously. ApplyTrack will monitor both accounts and consolidate all job-related communications in one dashboard.
+  </Accordion>
+  
+  <Accordion title="What if I use Outlook on desktop vs. web?">
+    The integration works at the account level, not the application level. Whether you use Outlook Desktop, Outlook Web, or the mobile app, ApplyTrack monitors your account and syncs all emails.
+  </Accordion>
+  
+  <Accordion title="Will ApplyTrack see my personal emails?">
+    ApplyTrack only processes emails that match job application patterns (keywords like 'application', 'interview', 'offer', recruiter domains, etc.). Other emails are ignored and never stored or analyzed.
+  </Accordion>
+  
+  <Accordion title="Can I customize which folders are monitored?">
+    Free users have Inbox monitoring by default. Premium users can enable monitoring for specific folders like 'Jobs', 'Recruiters', or custom folders in Settings → Integrations → Advanced.
+  </Accordion>
+  
+  <Accordion title="What happens if I change my Outlook password?">
+    Nothing! Since we use OAuth tokens instead of storing your password, changing your password doesn't affect the integration. Your emails continue syncing without any action needed.
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+### Organize Your Inbox
+- Create an Outlook rule to label job-related emails for easy identification
+- Use a dedicated folder for recruiter communications (Premium users can monitor this)
+- Keep your inbox organized to improve sync performance
+
+### Optimize Status Detection
+- Use consistent email addresses for job applications when possible
+- Avoid deleting recruiter emails - archive them instead to maintain history
+- If an email doesn't trigger a status update, manually adjust and report it to improve our AI
+
+### Privacy Tips
+- Regularly review connected applications in your Microsoft Account settings
+- Enable two-factor authentication on your Outlook account
+- Monitor the ApplyTrack activity log for unexpected behavior
+- Use a dedicated email for job hunting if privacy is a primary concern
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Gmail Integration" icon="google" href="/integrations/gmail">
+    Connect Gmail for comprehensive email tracking across providers
+  </Card>
+  
+  <Card title="Browser Extension" icon="chrome" href="/extensions/chrome">
+    Auto-capture applications from job boards with our Chrome extension
+  </Card>
+  
+  <Card title="Application Dashboard" icon="table" href="/dashboard/applications">
+    Master your application pipeline and tracking workflow
+  </Card>
+  
+  <Card title="Security Overview" icon="lock" href="/security/overview">
+    Learn about our enterprise security and compliance standards
+  </Card>
+</CardGroup>

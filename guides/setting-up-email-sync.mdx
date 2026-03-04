@@ -1,0 +1,332 @@
+---
+title: 'Setting Up Email Sync'
+description: 'Detailed guide to connecting Gmail or Outlook for automatic application tracking'
+---
+
+# Setting Up Email Sync
+
+Email synchronization is the most powerful feature in ApplyTrack. By connecting your email, you enable automatic tracking of recruiter responses, interview invitations, and application status changes without any manual updates.
+
+## Why Email Sync Matters
+
+Email sync transforms ApplyTrack from a passive tracker to an active career intelligence system:
+
+- **Automatic status updates:** Every recruiter email triggers instant status changes
+- **Thread monitoring:** Track entire conversation histories with hiring teams
+- **Response detection:** Know immediately when companies engage with your applications
+- **Interview scheduling:** Auto-detect meeting invitations and add them to your dashboard
+
+<Note>
+  Users with email sync enabled see 3x more accurate pipeline data and receive AI insights based on actual recruiter engagement patterns.
+</Note>
+
+## Supported Email Providers
+
+ApplyTrack uses secure OAuth authentication for:
+
+- **Gmail** (Google Workspace)
+- **Outlook** (Microsoft 365)
+- **Outlook.com** (personal accounts)
+
+<Tip>
+  We recommend connecting the email address you use for job applications. If you use multiple addresses, you can connect additional accounts in Premium Pro or Platinum Elite plans.
+</Tip>
+
+## Gmail Setup
+
+<Steps>
+  <Step title="Access Email Settings">
+    Navigate to your ApplyTrack dashboard and locate the Quick Commands section in the right sidebar.
+    
+    Click the **"Sync Mail"** button with the Sparkles icon (amber background).
+  </Step>
+
+  <Step title="Select Gmail Provider">
+    On the email connection screen, choose **"Connect Gmail"**.
+    
+    You'll see a description of permissions required:
+    - Read email messages and threads
+    - Access email metadata (sender, subject, timestamps)
+    - No permission to send or delete emails
+  </Step>
+
+  <Step title="Authenticate with Google">
+    Click **"Continue with Google"** to open the OAuth consent screen.
+    
+    1. Select your Google account
+    2. Review the permissions request
+    3. Click **"Allow"** to grant access
+    
+    <Note>
+      ApplyTrack uses OAuth 2.0, the industry-standard security protocol. We never see or store your password.
+    </Note>
+  </Step>
+
+  <Step title="Configure Sync Preferences">
+    After authentication, configure:
+    
+    **Sync Frequency:**
+    - Real-time (Premium Pro/Platinum Elite) - instant updates
+    - Every 15 minutes (Free tier)
+    - Manual sync only
+    
+    **Email Filters:**
+    - Sync all job-related emails (recommended)
+    - Sync specific senders only
+    - Sync emails with job board domains
+    
+    **Thread Detection:**
+    - Enable automatic status updates from email content
+    - Detect interview scheduling emails
+    - Flag urgent recruiter messages
+  </Step>
+
+  <Step title="Initial Sync">
+    ApplyTrack performs an initial scan of your last 90 days of emails to:
+    - Match emails to existing tracked applications
+    - Discover applications you submitted but haven't tracked yet
+    - Build your recruiter engagement history
+    
+    This process takes 2-5 minutes depending on email volume.
+    
+    <Tip>
+      During initial sync, the dashboard shows "Syncing 24 Active threads" in the header. This indicates the system is processing your email history.
+    </Tip>
+  </Step>
+
+  <Step title="Verify Connection">
+    Once sync completes, verify the connection:
+    
+    1. Check the dashboard header for sync status indicator
+    2. Review Recent Activity for any status updates
+    3. Look for the green "Connected" badge in Settings > Email Sync
+    
+    Your dashboard now displays "Syncing X Active threads" when processing emails.
+  </Step>
+</Steps>
+
+## Outlook Setup
+
+<Steps>
+  <Step title="Access Email Settings">
+    In your ApplyTrack dashboard, click the **"Sync Mail"** button in Quick Commands (right sidebar).
+  </Step>
+
+  <Step title="Select Outlook Provider">
+    Choose **"Connect Outlook"** from the email provider options.
+    
+    Select your account type:
+    - Microsoft 365 (work/school)
+    - Outlook.com (personal)
+  </Step>
+
+  <Step title="Authenticate with Microsoft">
+    Click **"Continue with Microsoft"** to open the OAuth consent screen.
+    
+    1. Enter your Microsoft email address
+    2. Sign in with your password
+    3. Approve the permissions request
+    4. Complete any two-factor authentication if enabled
+    
+    <Note>
+      For Microsoft 365 accounts, you may need admin consent if your organization restricts third-party app access. Contact your IT department if you see a consent error.
+    </Note>
+  </Step>
+
+  <Step title="Configure Sync Settings">
+    Set up your Outlook sync preferences:
+    
+    **Folders to Sync:**
+    - Inbox (recommended)
+    - Sent Items
+    - Archive
+    - Specific folders
+    
+    **Sync Frequency:**
+    - Real-time via Microsoft Graph API (Premium+)
+    - Every 15 minutes (Free tier)
+    
+    **Content Filters:**
+    - Job boards and recruiter domains
+    - Specific keywords (interview, offer, application)
+    - Email threads with tracked companies
+  </Step>
+
+  <Step title="Complete Initial Sync">
+    ApplyTrack scans your Outlook mailbox for job-related communications:
+    - Last 90 days of email history
+    - Automatic application matching
+    - Thread relationship mapping
+    
+    The dashboard shows sync progress in the header area.
+  </Step>
+
+  <Step title="Verify Connection">
+    Confirm successful Outlook sync:
+    - Green "Connected" status in Settings
+    - "Syncing X Active threads" indicator in dashboard header
+    - Recent Activity shows updated application statuses
+  </Step>
+</Steps>
+
+## Understanding Email Sync Features
+
+### Automatic Status Detection
+
+ApplyTrack's AI analyzes email content to update application statuses:
+
+| Email Content | Status Update |
+|--------------|---------------|
+| "We'd like to schedule an interview..." | Applied → Interviewing |
+| "Technical assessment invitation..." | Interviewing → Technical Round |
+| "We're pleased to extend an offer..." | Interviewing → Offer Extended |
+| "Thank you for your interest, but..." | Any Status → Rejected |
+| "Your application is under review..." | Applied → In Review |
+
+### Thread Monitoring
+
+Every email thread related to your applications is tracked:
+
+- **Conversation history:** Full thread view in application detail page
+- **Response time tracking:** Measures how quickly companies respond
+- **Engagement scoring:** Rates recruiter interest based on email frequency and content
+- **Follow-up reminders:** AI suggests optimal times to send follow-up emails
+
+<Tip>
+  Check your "Network Health" widget (right sidebar) to see your Response Rate Efficiency. The dashboard shows 82% as a strong benchmark.
+</Tip>
+
+### Interview Detection
+
+Email sync automatically detects interview invitations:
+
+- **Calendar integration:** Adds interviews to "Upcoming Rounds" widget
+- **Preparation alerts:** "Starts in 1h" and "Prepare Now" notifications
+- **Interview type identification:** Culture Fit, Technical Interview, Final Round
+- **Meeting details extraction:** Date, time, interviewer name, location/video link
+
+**Example from dashboard:**
+- Stripe: Today, 2:30 PM - Culture Fit - "Starts in 1h"
+- AirBnB: Tomorrow, 10:00 AM - Technical Interview - "Prepare Now"
+
+## Privacy and Security
+
+### Data Encryption
+
+<Note>
+  ApplyTrack uses high-grade encryption and locally-hosted models for text processing. Your email content is never stored permanently—only metadata and job-related excerpts are retained.
+</Note>
+
+**Security measures:**
+- **OAuth 2.0 authentication:** No password storage
+- **TLS 1.3 encryption:** All data in transit is encrypted
+- **AES-256 encryption:** Data at rest encryption
+- **Local text processing:** AI models run on secure servers, not shared with third parties
+- **Zero data sharing:** We never sell or share your email data
+
+### Permissions Scope
+
+ApplyTrack requests minimal permissions:
+
+✅ **What we access:**
+- Read email messages and threads
+- Access sender information and timestamps
+- Read email metadata (subject, date)
+
+❌ **What we never access:**
+- Cannot send emails on your behalf
+- Cannot delete or modify emails
+- Cannot access contacts or calendar (unless explicitly granted)
+- Cannot access non-job-related folders
+
+### Revoking Access
+
+You can disconnect email sync at any time:
+
+1. Go to Settings > Email Sync
+2. Click "Disconnect" next to your connected account
+3. Revoke OAuth permission in your email provider settings:
+   - **Gmail:** Google Account > Security > Third-party apps
+   - **Outlook:** Microsoft Account > Privacy > Apps & services
+
+## Troubleshooting
+
+### Sync Status Not Updating
+
+**Problem:** Dashboard shows "Not syncing" or stale data.
+
+**Solutions:**
+1. Check OAuth connection in Settings > Email Sync
+2. Click "Re-authenticate" to refresh the connection
+3. Verify your email account hasn't changed passwords
+4. Check browser console for error messages
+
+### Missing Status Updates
+
+**Problem:** Received a recruiter email but status didn't update.
+
+**Solutions:**
+1. Ensure the email is from a recognized recruiter domain
+2. Check that the company name matches your tracked application
+3. Manually update status if AI didn't detect the change
+4. Add the sender to "Trusted Recruiter Domains" in settings
+
+### Initial Sync Taking Too Long
+
+**Problem:** Initial sync runs for more than 10 minutes.
+
+**Solutions:**
+1. Large mailboxes (10,000+ emails) may take up to 30 minutes
+2. Check your internet connection
+3. Refresh the dashboard to see if sync completed
+4. Contact support if stuck after 1 hour
+
+### OAuth Permission Errors
+
+**Problem:** "Permission denied" or "Admin consent required" error.
+
+**Solutions:**
+1. **Gmail:** Ensure third-party app access is enabled in Google Workspace admin console
+2. **Outlook:** Request admin consent from IT department for Microsoft 365 accounts
+3. Use a personal email account if organizational policies block access
+
+## Advanced Configuration
+
+### Custom Email Filters (Premium Pro)
+
+Create advanced filters to control which emails trigger sync:
+
+```
+From: *@linkedin.com, *@indeed.com, recruiter@*
+Subject: interview, offer, application, opportunity
+Exclude: newsletter, digest, notification
+```
+
+### Multiple Email Accounts (Platinum Elite)
+
+Connect multiple email addresses:
+- Primary job search email
+- Professional domain email
+- Personal backup email
+
+The system merges all data into a unified dashboard view.
+
+### Webhook Integration (Enterprise)
+
+Set up webhooks for real-time notifications:
+- Slack integration for new recruiter emails
+- Discord notifications for interview invitations
+- Custom API webhooks for external systems
+
+## Next Steps
+
+With email sync enabled:
+
+1. **Monitor your Response Rate Efficiency** in the Network Health widget (target: 70-85%)
+2. **Review Upcoming Rounds** for auto-detected interviews
+3. **Explore AI insights** based on your email engagement patterns
+4. **Learn to interpret your analytics** - [Understanding Analytics](/guides/understanding-analytics)
+
+<Tip>
+  Enable push notifications in your account settings to receive instant alerts when recruiters engage with your applications. This helps you respond quickly and improve your response rate efficiency.
+</Tip>

@@ -1,0 +1,395 @@
+---
+title: 'Data Privacy'
+description: 'Privacy and security practices at ApplyTrack'
+---
+
+## Our Commitment to Privacy
+
+At ApplyTrack, we understand that your job search data is highly sensitive and personal. We've built our platform with privacy and security as core principles, not afterthoughts. Your data is strictly yours, and we're committed to protecting it with industry-leading security practices.
+
+## Encrypted Privacy
+
+ApplyTrack uses **high-grade encryption** to protect your data at every stage:
+
+### Data in Transit
+
+- **TLS 1.3 encryption** for all data transmitted between your browser and our servers
+- **End-to-end encryption** for email synchronization with Gmail and Outlook
+- **Certificate pinning** to prevent man-in-the-middle attacks
+- **Perfect forward secrecy** ensuring past communications remain secure even if keys are compromised
+
+### Data at Rest
+
+- **AES-256 encryption** for all data stored in our databases
+- **Encrypted backups** stored in geographically distributed data centers
+- **Encrypted file storage** for any documents or attachments you upload
+- **Database-level encryption** with regularly rotated encryption keys
+
+### Application Data Protection
+
+Every piece of information about your job applications is encrypted:
+
+- Company names and job titles
+- Application dates and statuses
+- Notes and custom fields
+- Email correspondence metadata
+- Analytics and performance metrics
+
+<Check>Your job search data is protected with the same level of encryption used by financial institutions</Check>
+
+## Locally-Hosted Models for Text Processing
+
+One of ApplyTrack's key privacy features is our use of **locally-hosted models for text processing**:
+
+### How It Works
+
+<Info>Your sensitive text data is processed on your device or our secure servers, never sent to third-party AI providers</Info>
+
+When ApplyTrack analyzes your applications, emails, or generates AI insights:
+
+1. **Browser Extension Processing** - When possible, text is processed directly in your browser using locally-run models
+2. **Secure Server Processing** - When cloud processing is needed, we use our own hosted AI models, not third-party APIs
+3. **No Third-Party Sharing** - Your data never leaves the ApplyTrack infrastructure
+4. **Immediate Deletion** - Processed text is immediately discarded after analysis
+
+### What This Means for You
+
+- **No data leakage** - Your resume content, application text, and email communications aren't sent to OpenAI, Anthropic, or other third-party AI services
+- **Private AI insights** - All AI Strategic Insights, Interview Assistant recommendations, and Portfolio Scoring happens on our infrastructure
+- **Faster processing** - Local models often process data faster than remote API calls
+- **Works offline** - Basic text processing can work even without internet connectivity
+
+## Data Collection
+
+### What We Collect
+
+ApplyTrack only collects data necessary to provide our service:
+
+#### Account Information
+- Name and email address
+- Password (hashed and salted, never stored in plain text)
+- Profile photo (optional)
+- Job preferences and target roles (optional)
+
+#### Application Tracking Data
+- Job titles and company names
+- Application submission dates
+- Application sources (job boards, company websites)
+- Application statuses (applied, interviewing, rejected, offer)
+- Custom notes and tags you add
+
+#### Email Metadata (Premium Pro and Platinum Elite)
+- Email sender information
+- Subject lines containing job-related keywords
+- Timestamps for communication tracking
+- Thread associations with applications
+
+**We do NOT collect:**
+- Full email body content (processed locally only, never stored)
+- Email attachments
+- Personal or non-job-related emails
+- Contacts or address book information
+- Calendar data
+
+#### Usage Analytics
+- Pages visited within ApplyTrack
+- Features used and click patterns
+- Performance metrics (page load times, errors)
+- Browser and device information
+
+### What We Don't Collect
+
+<Warning>ApplyTrack never collects or stores:</Warning>
+
+- Social Security numbers or government ID numbers
+- Financial information beyond what's required for billing
+- Precise geolocation data
+- Biometric data
+- Health information
+- Your job application materials (resumes, cover letters) unless you explicitly upload them
+
+## Data Usage
+
+### How We Use Your Data
+
+Your data is used exclusively to provide and improve ApplyTrack services:
+
+1. **Application Tracking** - Store and organize your job applications
+2. **Email Synchronization** - Match email communications with tracked applications
+3. **AI Insights** - Generate strategic recommendations based on your application data
+4. **Analytics** - Provide performance metrics and trends for your job search
+5. **Service Improvements** - Aggregate anonymized data to improve features and accuracy
+
+### How We Don't Use Your Data
+
+<Check>ApplyTrack never sells or rents your personal data to third parties</Check>
+
+- **No advertising** - We don't use your data for targeted advertising
+- **No data brokerage** - We don't sell application data to recruiters or employers
+- **No third-party sharing** - We don't share your data with partners for their marketing purposes
+- **No AI training** - We don't use your private data to train third-party AI models
+
+## Data Sharing
+
+### Third-Party Services
+
+ApplyTrack uses carefully vetted third-party services to operate:
+
+#### Essential Service Providers
+
+- **Cloud Infrastructure** - AWS or Google Cloud for hosting (data encrypted at rest)
+- **Payment Processing** - Stripe for secure payment processing (PCI DSS compliant)
+- **Authentication** - Auth0 or similar for secure OAuth integrations
+- **Email Delivery** - SendGrid for transactional emails and notifications
+
+All third-party providers are bound by strict data processing agreements and cannot use your data for their own purposes.
+
+#### OAuth Integrations
+
+When you connect Gmail or Outlook:
+
+- We request **minimum necessary permissions** (read-only access to email metadata)
+- You can revoke access at any time from your Google or Microsoft account settings
+- We never request permission to send emails on your behalf
+- OAuth tokens are encrypted and stored securely
+
+### When We May Disclose Data
+
+We may disclose your data only in these specific circumstances:
+
+1. **With Your Consent** - When you explicitly authorize us to share data
+2. **Legal Requirements** - To comply with valid legal processes (subpoenas, court orders)
+3. **Safety and Security** - To prevent fraud, abuse, or security threats
+4. **Business Transfers** - In the event of a merger or acquisition (with advance notice)
+
+<Info>We will notify you of any legal data requests unless prohibited by law</Info>
+
+## Email Synchronization Privacy
+
+### Gmail and Outlook Integration
+
+Email synchronization is a powerful feature, and we've designed it with privacy as the top priority:
+
+#### What We Access
+
+- **Sender information** - Email addresses and display names of recruiters and HR contacts
+- **Subject lines** - Only for emails matching job-related keywords
+- **Timestamps** - When emails were sent and received
+- **Thread IDs** - To group related email conversations
+
+#### What We Don't Access
+
+- **Email body content** - We never store full email text on our servers
+- **Attachments** - We don't download or access email attachments
+- **Unrelated emails** - Personal, shopping, or non-job-search emails are ignored
+- **Sent emails** - We only analyze incoming emails, not your sent messages
+
+#### Local Processing
+
+When email body content needs to be analyzed (e.g., to detect application status updates):
+
+1. Content is fetched directly to your browser or processed in encrypted memory
+2. Our locally-hosted models extract relevant information
+3. Only extracted metadata is stored (e.g., "interview scheduled for July 15")
+4. The full email content is immediately discarded and never logged
+
+### Revoking Email Access
+
+You can disconnect email synchronization at any time:
+
+1. Navigate to Settings > Integrations
+2. Click "Disconnect" next to Gmail or Outlook
+3. Optionally revoke OAuth permissions from your Google/Microsoft account
+
+Disconnecting email sync doesn't delete your previously tracked email metadata - that remains in your ApplyTrack dashboard until you manually delete it.
+
+## Data Retention
+
+### Active Accounts
+
+While your account is active, we retain your data indefinitely so you can:
+- Review your complete job search history
+- Analyze long-term trends and patterns
+- Reference past applications and notes
+
+### Inactive Accounts
+
+- **Free tier accounts** inactive for 12+ months may be archived
+- **Paid accounts** remain active as long as the subscription is current
+- We'll email you before archiving any inactive account
+
+### After Account Deletion
+
+When you delete your account:
+
+1. **Immediate deletion** - Your account is immediately deactivated and inaccessible
+2. **30-day grace period** - Data is retained in backups for 30 days in case you change your mind
+3. **Permanent deletion** - After 30 days, all data is permanently deleted from our systems
+4. **Legal retention** - Some data may be retained longer if required by law (e.g., billing records)
+
+<Warning>Account deletion is permanent. Make sure to export your data before deleting your account.</Warning>
+
+## Data Export and Portability
+
+You have full control over your data and can export it at any time:
+
+### Export Formats
+
+- **JSON** - Structured data for importing into other applications
+- **CSV** - Spreadsheet-compatible format for analysis in Excel or Google Sheets
+- **PDF** - Human-readable report of your job search history
+
+### What's Included in Exports
+
+- All tracked applications with complete details
+- Notes, tags, and custom fields
+- Email metadata (sender, subject, timestamp)
+- Analytics and performance metrics
+- Account settings and preferences
+
+To export your data:
+
+1. Navigate to Settings > Privacy
+2. Click "Export My Data"
+3. Select data types and format
+4. Download your secure archive
+
+## Security Measures
+
+### Infrastructure Security
+
+- **Cloud security** - Hosted on SOC 2 Type II compliant infrastructure
+- **DDoS protection** - Cloudflare protection against denial-of-service attacks
+- **Firewall protection** - Network-level firewalls to block unauthorized access
+- **Intrusion detection** - Real-time monitoring for suspicious activity
+- **Regular security audits** - Third-party penetration testing and vulnerability assessments
+
+### Application Security
+
+- **Secure authentication** - Bcrypt password hashing with salt
+- **Session management** - Secure, httpOnly cookies with automatic expiration
+- **CSRF protection** - Tokens to prevent cross-site request forgery
+- **SQL injection prevention** - Parameterized queries and ORM usage
+- **XSS protection** - Input sanitization and content security policies
+
+### Employee Access
+
+- **Minimum necessary access** - Employees can only access data required for their role
+- **Audit logging** - All data access is logged and monitored
+- **Background checks** - All employees undergo security screening
+- **Confidentiality agreements** - All employees sign NDAs
+- **Regular training** - Security and privacy training for all staff
+
+### Browser Extension Security
+
+Our browser extension is designed with security in mind:
+
+- **Minimum permissions** - Only requests access to job board websites
+- **Open source** - Extension code is available for security review
+- **No tracking** - Doesn't monitor your general browsing activity
+- **Local storage** - Data is stored securely in browser storage, not transmitted automatically
+- **Code signing** - Extension is digitally signed to prevent tampering
+
+## Compliance
+
+### Regulatory Compliance
+
+ApplyTrack complies with major data protection regulations:
+
+#### GDPR (General Data Protection Regulation)
+
+For users in the European Union:
+
+- **Right to access** - Request a copy of your personal data
+- **Right to rectification** - Correct inaccurate personal data
+- **Right to erasure** - Request deletion of your personal data
+- **Right to restrict processing** - Limit how we process your data
+- **Right to data portability** - Receive your data in a machine-readable format
+- **Right to object** - Object to processing of your personal data
+
+#### CCPA (California Consumer Privacy Act)
+
+For California residents:
+
+- **Right to know** - What personal information we collect and how it's used
+- **Right to delete** - Request deletion of your personal information
+- **Right to opt-out** - Opt out of sale of personal information (note: we never sell data)
+- **Right to non-discrimination** - Equal service regardless of privacy choices
+
+#### Other Regulations
+
+- **SOC 2 Type II** - Annual compliance audits for security, availability, and confidentiality
+- **PCI DSS** - Payment Card Industry compliance for payment processing
+- **HIPAA** - Not applicable (we don't handle health information)
+
+### Data Processing Addendum
+
+For business customers requiring data processing agreements, contact our legal team at legal@applytrack.ai.
+
+## Your Privacy Rights
+
+### Access Your Data
+
+Request a complete copy of your personal data:
+- Navigate to Settings > Privacy > Export My Data
+- Or email privacy@applytrack.ai
+
+### Correct Your Data
+
+Update inaccurate information:
+- Edit your profile in Settings > Profile
+- Or contact support@applytrack.ai
+
+### Delete Your Data
+
+Request permanent deletion:
+- Navigate to Settings > Privacy > Delete My Account
+- Or email privacy@applytrack.ai with your request
+
+### Opt Out of Communications
+
+Unsubscribe from marketing emails:
+- Click "Unsubscribe" in any marketing email
+- Or update preferences in Settings > Notifications
+
+### File a Complaint
+
+If you believe we've mishandled your data:
+
+1. Contact our Data Protection Officer at dpo@applytrack.ai
+2. We'll investigate and respond within 30 days
+3. You may also file a complaint with your local data protection authority
+
+## Privacy Policy Updates
+
+We may update our privacy practices from time to time:
+
+- **Material changes** - We'll email you 30 days before implementing significant changes
+- **Minor updates** - Posted on our website with the "Last Updated" date
+- **Continued use** - Using ApplyTrack after changes constitutes acceptance
+- **Version history** - Previous versions available at applytrack.ai/privacy/history
+
+**Last Updated:** March 4, 2026
+
+## Contact Us
+
+Questions about privacy or data security?
+
+- **Email:** privacy@applytrack.ai
+- **Data Protection Officer:** dpo@applytrack.ai
+- **Mailing Address:** 
+  ApplyTrack AI, Inc.  
+  123 Privacy Lane  
+  San Francisco, CA 94102  
+  United States
+
+## Transparency Report
+
+We publish annual transparency reports detailing:
+
+- Number of law enforcement data requests received
+- Types of requests and our responses
+- Security incidents and breaches (if any)
+- Compliance audit results
+
+View our latest transparency report at applytrack.ai/transparency.

@@ -1,0 +1,354 @@
+---
+title: 'Dashboard Overview'
+description: 'Navigate your centralized career command center and manage every lead, interview, and offer'
+icon: 'layout-dashboard'
+---
+
+## Your Career Command Center
+
+The ApplyTrack dashboard is your centralized hub for managing every aspect of your job search. From application tracking to AI-powered insights, everything is accessible in one polished interface.
+
+<Frame>
+  <img src="/images/dashboard-overview.png" alt="ApplyTrack Dashboard" />
+</Frame>
+
+## Dashboard Stats
+
+The top of your dashboard displays real-time statistics across four key metrics:
+
+<CardGroup cols={2}>
+  <Card title="Total Applied" icon="briefcase">
+    **142 applications** tracked with +12% month-over-month growth
+  </Card>
+  <Card title="Interviews" icon="clock">
+    **12 active interviews** with 3 scheduled this week
+  </Card>
+  <Card title="Offer Rate" icon="trending-up">
+    **2.4% success rate**, higher than the average 1.8%
+  </Card>
+  <Card title="Active Pipeline" icon="zap">
+    **18 opportunities** currently in discussion phase
+  </Card>
+</CardGroup>
+
+```typescript
+// Real dashboard stats from source code
+const stats = [
+  { 
+    label: 'Total Applied', 
+    val: '142', 
+    sub: '+12% month over month', 
+    icon: Briefcase, 
+    color: "text-blue-600", 
+    bg: "bg-blue-50" 
+  },
+  { 
+    label: 'Interviews', 
+    val: '12', 
+    sub: '3 scheduled this week', 
+    icon: Clock, 
+    color: "text-amber-500", 
+    bg: "bg-amber-50" 
+  },
+  { 
+    label: 'Offer Rate', 
+    val: '2.4%', 
+    sub: 'Higher than average (1.8%)', 
+    icon: TrendingUp, 
+    color: "text-emerald-500", 
+    bg: "bg-emerald-50" 
+  },
+  { 
+    label: 'Active Pipeline', 
+    val: '18', 
+    sub: 'Currently in discussion', 
+    icon: Zap, 
+    color: "text-indigo-600", 
+    bg: "bg-indigo-50" 
+  }
+];
+```
+
+## Navigation Structure
+
+The sidebar is organized into two main sections:
+
+### Inventory Section
+
+<Accordion title="Overview">
+  
+  Your main dashboard view displaying:
+  
+  - **Welcome header**: Personalized greeting with upcoming interview count
+  - **Stats grid**: Four-metric overview of your job search performance
+  - **Recent activity**: Latest applications with status badges
+  - **Upcoming rounds**: Interview schedule with countdown timers
+  - **AI Opportunity Engine**: Real-time recommendations
+  - **Quick commands**: Fast access to common actions
+  - **Network health**: Response rate efficiency (82%)
+  
+  ```typescript
+  // Dashboard header from source
+  <h1>Dashboard Overview</h1>
+  <p>Welcome back, John. You have 3 interviews coming up this week.</p>
+  ```
+
+</Accordion>
+
+<Accordion title="Applications (142)">
+  
+  Complete application inventory with:
+  
+  - **Status filtering**: All (142), Active (12), Interviewing, Rejected, Offers
+  - **Search functionality**: Find by company name, role, or keyword
+  - **Advanced filters**: Sort by date, status, response rate, salary
+  - **Bulk actions**: Update multiple applications at once
+  - **Export options**: Download as CSV or PDF
+  
+  Each application card displays:
+  - Company logo or initial
+  - Role title and company name
+  - Current status with color coding
+  - Time since last update
+  - Quick action menu (three dots)
+
+</Accordion>
+
+<Accordion title="Interviews">
+  
+  Interview management center with:
+  
+  - **Upcoming interviews**: Chronological list with countdown timers
+  - **Interview types**: Technical, Culture Fit, Final Round labels
+  - **Calendar integration**: Sync with Google Calendar or Outlook
+  - **Preparation tools**: AI-generated company research and questions
+  - **Post-interview notes**: Record impressions and follow-ups
+  
+  ```typescript
+  // Upcoming interviews structure
+  const upcomingInterviews = [
+    { 
+      company: "Stripe", 
+      date: "Today, 2:30 PM", 
+      type: "Culture Fit", 
+      status: "Starts in 1h" 
+    },
+    { 
+      company: "AirBnB", 
+      date: "Tomorrow, 10:00 AM", 
+      type: "Technical Interview", 
+      status: "Prepare Now" 
+    }
+  ];
+  ```
+
+</Accordion>
+
+<Accordion title="Analytics">
+  
+  Performance metrics and reporting:
+  
+  - **Response rate trends**: Track interview callback percentages over time
+  - **Application velocity**: Applications per week/month charts
+  - **Success funnel**: Applied → Interview → Offer conversion rates
+  - **Time-to-response**: Average days from application to first contact
+  - **Company insights**: Which companies respond most frequently
+  - **Industry breakdown**: Applications by sector visualization
+  
+  See [Analytics Documentation](/features/analytics) for detailed metrics.
+
+</Accordion>
+
+### Strategy Section
+
+<Accordion title="Market Insights">
+  
+  AI-powered market intelligence:
+  
+  - **Job market trends**: Hiring velocity in your target roles
+  - **Salary benchmarks**: Compensation data for your experience level
+  - **Company health**: Recent funding, growth, and layoff alerts
+  - **Skill gaps**: Recommended skills to improve application success
+  - **Timing optimization**: Best days/times to submit applications
+  
+  Available on **Premium** and **Platinum** plans.
+
+</Accordion>
+
+<Accordion title="Salary Engine">
+  
+  Compensation research tools:
+  
+  - **Role-based salary ranges**: Market rates for specific positions
+  - **Location adjustments**: Cost of living compensation factors
+  - **Negotiation insights**: Suggested counter-offer strategies
+  - **Benefits comparison**: Compare total compensation packages
+  - **Equity calculators**: Estimate stock option values
+  
+  Available on all plans with enhanced data on **Platinum**.
+
+</Accordion>
+
+<Accordion title="Interview Prep">
+  
+  AI-powered interview preparation:
+  
+  - **Company research**: Auto-generated brief on each employer
+  - **Question bank**: Common questions for your role and industry
+  - **Mock interviews**: Practice with AI interviewer
+  - **Answer framework**: STAR method templates
+  - **Technical prep**: Coding challenges and system design resources
+  
+  Available on **Platinum** plan as "AI Interview Assistant".
+
+</Accordion>
+
+## Header Functionality
+
+<CardGroup cols={3}>
+  <Card title="Global Search" icon="search">
+    Search across roles, companies, tasks, and notes from anywhere
+  </Card>
+  <Card title="Pro Mode" icon="sparkles">
+    Quick toggle showing your active subscription tier
+  </Card>
+  <Card title="Notifications" icon="bell">
+    Real-time alerts for email updates, interview reminders, and AI insights
+  </Card>
+</CardGroup>
+
+```typescript
+// Header component structure from source
+<header className="flex h-20 items-center justify-between">
+  <input 
+    type="text" 
+    placeholder="Search roles, companies, or tasks..." 
+    className="w-96"
+  />
+  <button>Pro Mode Active</button>
+  <button>Notifications (badge)</button>
+  <div>User Profile - John Doe - Premium Tier</div>
+</header>
+```
+
+## Recent Activity Feed
+
+The main dashboard displays your latest applications with rich status indicators:
+
+<Steps>
+  <Step title="Application Submitted">
+    Shows as "Applied" with gray badge, timestamp of submission
+  </Step>
+  <Step title="Status Updates">
+    Automatically changes to "Interviewing" (blue), "Technical Round" (amber), or "Offer Extended" (green)
+  </Step>
+  <Step title="Email Sync Integration">
+    Updates trigger automatically when emails are detected from recruiters
+  </Step>
+</Steps>
+
+```typescript
+// Application status display from source
+const recentApplications = [
+  { 
+    company: "Anthropic", 
+    role: "AI Researcher", 
+    status: "Interviewing", 
+    time: "2h ago", 
+    color: "text-blue-600", 
+    bg: "bg-blue-50" 
+  },
+  { 
+    company: "Scale AI", 
+    role: "Product Designer", 
+    status: "Offer Extended", 
+    time: "1d ago", 
+    color: "text-emerald-600", 
+    bg: "bg-emerald-50" 
+  },
+  { 
+    company: "Tesla", 
+    role: "Senior Developer", 
+    status: "Technical Round", 
+    time: "2d ago", 
+    color: "text-amber-600", 
+    bg: "bg-amber-50" 
+  }
+];
+```
+
+## AI Opportunity Engine
+
+The dashboard features a prominent AI insight card that displays personalized recommendations:
+
+<Card title="Example AI Insight" icon="sparkles">
+  "OpenAI just posted 3 new roles that perfectly match your tech stack. Submit before the application cap to be in the first 10% of candidates."
+</Card>
+
+These insights update in real-time and are powered by:
+- Your application history and tech stack
+- Job market trends and posting velocity
+- Response rate patterns at specific companies
+- Timing optimization algorithms
+
+## Quick Commands
+
+The sidebar includes four quick action buttons:
+
+<CardGroup cols={2}>
+  <Card title="New Track" icon="briefcase">
+    Manually add an application
+  </Card>
+  <Card title="Sync Mail" icon="sparkles">
+    Force email synchronization
+  </Card>
+  <Card title="Resume Score" icon="trending-up">
+    AI analysis of your resume
+  </Card>
+  <Card title="Search" icon="search">
+    Advanced application search
+  </Card>
+</CardGroup>
+
+## Network Health Widget
+
+Displays your response rate efficiency as a percentage with visual progress bar:
+
+- **82% efficiency**: Your current response rate
+- **Benchmark comparison**: Industry average comparison
+- **Trend indicator**: Week-over-week improvement tracking
+
+```typescript
+// Network health display from source
+<div className="rounded-[2.5rem] border border-zinc-100 bg-zinc-50 p-8">
+  <div>Network Health</div>
+  <div className="h-1.5 w-full rounded-full bg-zinc-200">
+    <div className="h-full w-[82%] bg-[#1C4ED8]" />
+  </div>
+  <span>Response Rate Efficiency</span>
+  <span>82%</span>
+</div>
+```
+
+## Mobile & Cross-Device Sync
+
+<Info>
+  Your workspace stays in sync across all devices. Capture applications on desktop, monitor progress on mobile, review insights on tablet.
+</Info>
+
+The dashboard is fully responsive with:
+- Mobile-optimized layouts
+- Touch-friendly interactions
+- Native mobile apps (iOS/Android)
+- Real-time synchronization
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="AI Insights" icon="sparkles" href="/features/ai-insights">
+    Learn how AI recommendations improve your success rate
+  </Card>
+  <Card title="Email Sync" icon="mail" href="/features/email-sync">
+    Connect your email to track recruiter responses
+  </Card>
+</CardGroup>

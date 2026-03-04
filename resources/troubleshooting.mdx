@@ -1,0 +1,566 @@
+---
+title: Troubleshooting Guide
+description: Solutions to common issues with the ApplyTrack browser extension, email sync, dashboard access, and application tracking.
+---
+
+## Browser Extension Issues
+
+### Extension not detecting applications
+
+**Symptoms**: You've submitted a job application, but it doesn't appear in your dashboard.
+
+<AccordionGroup>
+  <Accordion title="Verify extension is installed and enabled">
+    **Check installation:**
+    1. Click the extensions icon in your browser toolbar (puzzle piece icon)
+    2. Verify ApplyTrack appears in the list
+    3. Ensure the toggle is **ON** (blue/enabled state)
+
+    **If not installed:**
+    - Chrome: Visit Chrome Web Store → Search "ApplyTrack" → Click **Add to Chrome**
+    - Firefox: Visit Firefox Add-ons → Search "ApplyTrack" → Click **Add to Firefox**
+    - Edge: Visit Edge Add-ons → Search "ApplyTrack" → Click **Get**
+
+    After installation, sign in with your ApplyTrack credentials.
+  </Accordion>
+
+  <Accordion title="Confirm you're signed in to the extension">
+    The extension must be authenticated to send data to your dashboard.
+
+    **Check sign-in status:**
+    1. Click the ApplyTrack extension icon
+    2. Verify you see your account email at the top
+    3. If you see "Sign In," click it and enter your credentials
+
+    **If sign-in fails:**
+    - Clear browser cache and cookies
+    - Disable other extensions that might interfere (ad blockers, privacy tools)
+    - Try signing in through an incognito/private window
+  </Accordion>
+
+  <Accordion title="Check if the platform is supported">
+    ApplyTrack supports 200+ job boards, but not every platform is compatible.
+
+    **Verify platform support:**
+    1. Go to **Dashboard → Settings → Supported Platforms**
+    2. Search for the job board you used
+    3. Check the "Status" column for compatibility
+
+    **Platforms with known detection issues:**
+    - Custom company career pages (non-ATS)
+    - Mobile-only application flows
+    - PDF/email-based applications
+    - Applications requiring multiple redirects
+
+    **Workaround**: Use manual application entry for unsupported platforms. Click **New Track** in your dashboard and fill in the details.
+  </Accordion>
+
+  <Accordion title="Refresh the job board page">
+    Sometimes the extension's content script doesn't load properly.
+
+    **Steps to resolve:**
+    1. Refresh the job board page (Cmd+R or Ctrl+R)
+    2. Wait for the page to fully load
+    3. Submit your application again
+    4. Check your dashboard after 30 seconds
+
+    **If the issue persists:**
+    - Hard refresh with cache clear (Cmd+Shift+R or Ctrl+Shift+R)
+    - Close and reopen the browser tab
+    - Restart your browser completely
+  </Accordion>
+
+  <Accordion title="Update to the latest extension version">
+    Outdated extensions may have compatibility issues with updated job board layouts.
+
+    **Check for updates:**
+    1. Navigate to your browser's extension management page
+       - Chrome: `chrome://extensions`
+       - Firefox: `about:addons`
+       - Edge: `edge://extensions`
+    2. Enable "Developer mode" (Chrome/Edge)
+    3. Click "Update" or wait for automatic updates
+    4. Restart your browser after updating
+
+    Current version: **v1.4.2** (as of March 2026)
+  </Accordion>
+
+  <Accordion title="Check browser console for errors">
+    For advanced troubleshooting, inspect console logs.
+
+    **View extension logs:**
+    1. Right-click the extension icon → **Inspect popup**
+    2. Click the **Console** tab
+    3. Look for error messages (red text)
+    4. Copy the error message and send to support@applytrack.ai
+
+    Common errors:
+    - `Auth token expired`: Sign out and sign back in
+    - `Network request failed`: Check your internet connection
+    - `Permission denied`: Grant extension permissions in browser settings
+  </Accordion>
+</AccordionGroup>
+
+### Extension slowing down browser
+
+**Symptoms**: Browser becomes sluggish after installing ApplyTrack.
+
+<AccordionGroup>
+  <Accordion title="Limit extension to specific domains">
+    By default, the extension activates on all job board domains. You can restrict it to only your most-used platforms.
+
+    **Configure domain restrictions:**
+    1. Click the ApplyTrack extension icon
+    2. Go to **Settings** → **Active Domains**
+    3. Uncheck platforms you don't use frequently
+    4. Click **Save Changes**
+
+    This reduces memory usage by preventing the extension from loading on unused sites.
+  </Accordion>
+
+  <Accordion title="Disable competing extensions">
+    Multiple job tracking or form-filling extensions can conflict and slow performance.
+
+    **Identify conflicts:**
+    1. Disable other job-related extensions temporarily
+    2. Test browser performance
+    3. Re-enable extensions one at a time to isolate the issue
+
+    Known conflicts:
+    - Other application trackers (Huntr, Teal, JibberJobber)
+    - Password managers with aggressive form-filling
+    - Heavy privacy/ad-blocking extensions
+  </Accordion>
+
+  <Accordion title="Clear extension cache">
+    Accumulated cache data can cause performance degradation.
+
+    **Clear cache:**
+    1. Click ApplyTrack extension icon
+    2. Go to **Settings** → **Advanced**
+    3. Click **Clear Cache**
+    4. Restart your browser
+
+    This removes temporary data without affecting your saved applications.
+  </Accordion>
+</AccordionGroup>
+
+## Email Sync Issues
+
+### Gmail/Outlook not connecting
+
+**Symptoms**: Unable to complete OAuth flow or connection keeps failing.
+
+<AccordionGroup>
+  <Accordion title="Enable third-party app access">
+    Some email providers block third-party OAuth by default.
+
+    **For Gmail:**
+    1. Go to Google Account → **Security**
+    2. Enable **Less secure app access** (if available)
+    3. Or add ApplyTrack to **Trusted apps** under **Third-party access**
+
+    **For Outlook:**
+    1. Go to Microsoft Account → **Security**
+    2. Under **Advanced security options**, enable **App passwords**
+    3. Use the generated password for ApplyTrack authentication
+  </Accordion>
+
+  <Accordion title="Check corporate email restrictions">
+    If you're using a work email (Google Workspace or Microsoft 365), your IT admin may have disabled third-party OAuth.
+
+    **Verify with IT:**
+    - Contact your IT department
+    - Request approval for ApplyTrack's OAuth app
+    - Provide our OAuth app ID (available in dashboard settings)
+
+    **Alternative**: Use a personal Gmail/Outlook account for job search tracking instead of your work email.
+  </Accordion>
+
+  <Accordion title="Clear OAuth tokens and reconnect">
+    Stale or corrupted tokens can prevent successful connections.
+
+    **Reset connection:**
+    1. Go to **Dashboard → Settings → Email Sync**
+    2. Click **Disconnect** next to your email provider
+    3. Wait 30 seconds
+    4. Click **Connect Gmail** or **Connect Outlook**
+    5. Complete the OAuth flow in the popup window
+
+    Make sure to allow all requested permissions during OAuth.
+  </Accordion>
+
+  <Accordion title="Disable browser extensions blocking popups">
+    OAuth flows require popup windows. Extensions like popup blockers can interfere.
+
+    **Temporarily disable:**
+    - Ad blockers (uBlock, AdBlock Plus)
+    - Privacy extensions (Privacy Badger, Ghostery)
+    - Script blockers (NoScript)
+
+    After connecting, you can re-enable these extensions. ApplyTrack will maintain the connection.
+  </Accordion>
+</AccordionGroup>
+
+### Email sync not updating application statuses
+
+**Symptoms**: Email connection is active, but application statuses don't change when you receive recruiter emails.
+
+<AccordionGroup>
+  <Accordion title="Verify email sync is enabled">
+    Even with a connected account, email monitoring may be turned off.
+
+    **Check sync status:**
+    1. Go to **Dashboard → Settings → Email Sync**
+    2. Verify **Sync Status** shows "Active" with a green indicator
+    3. Check **Last Sync** timestamp (should be within the last hour)
+
+    **If inactive:**
+    - Toggle **Enable Sync** to ON
+    - Click **Sync Now** to force an immediate sync
+  </Accordion>
+
+  <Accordion title="Confirm recruiter emails match tracked applications">
+    ApplyTrack can only update statuses for applications that exist in your dashboard.
+
+    **Troubleshoot matching:**
+    1. Check if the application was tracked (search for company name in dashboard)
+    2. Verify the recruiter email mentions the job title or company
+    3. Look for matching keywords: "interview," "offer," "next steps," "application"
+
+    **If emails aren't matching:**
+    - Manually update the status by clicking the application card
+    - Add custom tags to help the AI identify related threads
+  </Accordion>
+
+  <Accordion title="Check email filters and spam folders">
+    If recruiter emails are being filtered or marked as spam, ApplyTrack may not see them.
+
+    **Review filters:**
+    1. Check Gmail **Filters** or Outlook **Rules**
+    2. Ensure job-related emails aren't being auto-archived or deleted
+    3. Search your **Spam** folder for recruiter emails
+    4. Mark legitimate recruiter emails as "Not Spam"
+
+    ApplyTrack only scans your primary inbox and sent folders, not custom labels/folders.
+  </Accordion>
+
+  <Accordion title="Wait for the next sync cycle">
+    Email sync runs every 15 minutes. Recent emails may not be processed immediately.
+
+    **Force a sync:**
+    1. Go to **Settings → Email Sync**
+    2. Click **Sync Now**
+    3. Wait 1-2 minutes for processing
+    4. Refresh your dashboard
+
+    **Sync schedule:**
+    - Free tier: Every 60 minutes
+    - Premium: Every 15 minutes
+    - Platinum: Every 5 minutes + real-time webhooks
+  </Accordion>
+</AccordionGroup>
+
+## Login & Account Issues
+
+### Cannot log in to dashboard
+
+**Symptoms**: Login fails with "Invalid credentials" or account not found.
+
+<AccordionGroup>
+  <Accordion title="Reset your password">
+    If you've forgotten your password or it's not working:
+
+    1. Go to [applytrack.ai/login](https://applytrack.ai/login)
+    2. Click **Forgot?** under the password field
+    3. Enter your email address
+    4. Check your inbox for the password reset link (check spam folder)
+    5. Click the link and create a new password
+    6. Try logging in again
+
+    Password requirements:
+    - At least 8 characters
+    - Include uppercase and lowercase letters
+    - Include at least one number
+  </Accordion>
+
+  <Accordion title="Verify you're using the correct email">
+    If you signed up with a social login (GitHub, Google), you may not have a password-based account.
+
+    **Check account type:**
+    1. Try clicking **Continue with Google** or **Continue with Github** on the login page
+    2. If that works, your account uses social authentication
+
+    **Set up password login:**
+    1. Log in via social provider
+    2. Go to **Settings → Account → Security**
+    3. Click **Add Password**
+    4. Create a password for traditional login
+  </Accordion>
+
+  <Accordion title="Clear browser cache and cookies">
+    Corrupted session data can prevent login.
+
+    **Clear site data:**
+    1. Open browser settings
+    2. Go to **Privacy and Security** → **Clear browsing data**
+    3. Select **Cookies and site data** and **Cached images and files**
+    4. Time range: **All time**
+    5. Click **Clear data**
+    6. Try logging in again
+
+    You may need to re-authenticate the browser extension after clearing cookies.
+  </Accordion>
+
+  <Accordion title="Try a different browser or incognito mode">
+    Browser extensions or cached states can interfere with login.
+
+    **Test in clean environment:**
+    1. Open an incognito/private window (Cmd+Shift+N or Ctrl+Shift+N)
+    2. Navigate to applytrack.ai/login
+    3. Attempt to log in
+
+    **If incognito works:**
+    - Disable browser extensions one by one to find the culprit
+    - Reset browser settings to default
+    - Update your browser to the latest version
+  </Accordion>
+</AccordionGroup>
+
+### Two-factor authentication (2FA) issues
+
+**Symptoms**: 2FA code not working or not receiving codes.
+
+<AccordionGroup>
+  <Accordion title="Ensure authenticator app is synced">
+    If you're using an authenticator app (Authy, Google Authenticator), time drift can cause invalid codes.
+
+    **Sync time:**
+    - Google Authenticator: Settings → Time correction for codes → Sync now
+    - Authy: Settings → App protection → Sync
+
+    Make sure your device's clock is set to automatic/network time.
+  </Accordion>
+
+  <Accordion title="Use backup codes">
+    When you enabled 2FA, you received a set of backup codes.
+
+    **Use backup code:**
+    1. On the 2FA prompt, click **Use backup code**
+    2. Enter one of your saved backup codes
+    3. After logging in, go to **Settings → Security → Two-Factor Authentication**
+    4. Generate new backup codes (the used one is now invalid)
+  </Accordion>
+
+  <Accordion title="Disable 2FA via email recovery">
+    If you've lost access to your authenticator and backup codes:
+
+    1. Click **Can't access your authenticator?** on the 2FA screen
+    2. Verify your email address
+    3. Check your inbox for the 2FA recovery link
+    4. Follow the link to disable 2FA
+    5. Log in with just email and password
+    6. Re-enable 2FA with a new authenticator app
+
+    For security, this process may take 24-48 hours to complete.
+  </Accordion>
+</AccordionGroup>
+
+## Dashboard & Data Issues
+
+### Dashboard not loading or displaying errors
+
+**Symptoms**: Blank screen, infinite loading, or error messages in dashboard.
+
+<AccordionGroup>
+  <Accordion title="Check internet connection">
+    Ensure you have a stable connection:
+
+    1. Try loading another website (e.g., google.com)
+    2. Run a speed test
+    3. Restart your router if needed
+
+    ApplyTrack requires a minimum 1 Mbps connection for optimal performance.
+  </Accordion>
+
+  <Accordion title="Verify service status">
+    ApplyTrack may be experiencing downtime or maintenance.
+
+    **Check status:**
+    - Visit status.applytrack.ai
+    - Check our Twitter [@applytrack](https://twitter.com/applytrack) for updates
+    - Look for banner messages on the login page
+
+    During planned maintenance (announced 48 hours in advance), some features may be temporarily unavailable.
+  </Accordion>
+
+  <Accordion title="Update your browser">
+    ApplyTrack requires modern browser features that may not be available in older versions.
+
+    **Minimum requirements:**
+    - Chrome 90+
+    - Firefox 88+
+    - Edge 90+
+    - Safari 14+
+
+    **Update browser:**
+    - Chrome: Menu → Help → About Google Chrome → Auto-updates
+    - Firefox: Menu → Help → About Firefox → Auto-updates
+    - Edge: Menu → Help and feedback → About Microsoft Edge
+  </Accordion>
+
+  <Accordion title="Disable browser extensions">
+    Some extensions can break dashboard functionality.
+
+    **Known problematic extensions:**
+    - Aggressive ad blockers
+    - Script blockers (NoScript, uMatrix)
+    - VPNs with aggressive filtering
+
+    Try disabling these extensions and refreshing the dashboard.
+  </Accordion>
+</AccordionGroup>
+
+### Applications missing or data not syncing
+
+**Symptoms**: Applications you know you added aren't showing up, or dashboard data is outdated.
+
+<AccordionGroup>
+  <Accordion title="Refresh the dashboard">
+    The dashboard caches data for performance. Force a fresh load:
+
+    1. Press Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows) for hard refresh
+    2. Or click the **Sync** icon in the dashboard header
+    3. Wait 5-10 seconds for data to load
+  </Accordion>
+
+  <Accordion title="Check filter and search settings">
+    Applications may be hidden by active filters.
+
+    **Clear filters:**
+    1. Look for filter indicators in the dashboard header
+    2. Click **Clear All Filters**
+    3. Remove any search queries in the search bar
+    4. Reset date range to "All Time"
+
+    Archived applications are hidden by default—toggle **Show Archived** to see them.
+  </Accordion>
+
+  <Accordion title="Verify account sync across devices">
+    If you use ApplyTrack on multiple devices, ensure you're logged into the same account.
+
+    **Check account:**
+    1. Click your profile icon in the top right
+    2. Verify the email address matches your primary account
+    3. If you have multiple accounts, sign out and sign in to the correct one
+  </Accordion>
+
+  <Accordion title="Contact support for data recovery">
+    If applications are genuinely missing due to a bug:
+
+    1. Note the missing application details (company, job title, date applied)
+    2. Email support@applytrack.ai with:
+       - Your account email
+       - List of missing applications
+       - Approximate date range when they were added
+    3. Our team can attempt data recovery from backups (within 30 days)
+  </Accordion>
+</AccordionGroup>
+
+## Billing & Subscription Issues
+
+### Payment failed or subscription canceled
+
+**Symptoms**: Payment declined, subscription downgraded unexpectedly.
+
+<AccordionGroup>
+  <Accordion title="Update payment method">
+    Expired cards or insufficient funds cause payment failures.
+
+    **Update billing:**
+    1. Go to **Settings → Billing**
+    2. Click **Update Payment Method**
+    3. Enter new card details
+    4. Click **Retry Payment** to reactivate subscription
+
+    If the retry succeeds, your subscription resumes immediately with full access restored.
+  </Accordion>
+
+  <Accordion title="Check with your bank">
+    Some banks flag SaaS subscriptions as suspicious.
+
+    **Contact your bank:**
+    - Confirm the charge is legitimate
+    - Whitelist charges from "ApplyTrack" or "Stripe" (our payment processor)
+    - Increase online purchase limits if applicable
+  </Accordion>
+
+  <Accordion title="Verify billing address matches card">
+    Address verification (AVS) failures can cause declined payments.
+
+    **Update address:**
+    1. Go to **Settings → Billing**
+    2. Ensure billing address matches your card's registered address exactly
+    3. Save changes and retry payment
+  </Accordion>
+</AccordionGroup>
+
+### Not receiving invoices
+
+**Symptoms**: You're being charged but not receiving email receipts.
+
+<AccordionGroup>
+  <Accordion title="Check spam/promotions folders">
+    Invoices may be filtered by your email provider.
+
+    1. Search for "ApplyTrack" or "invoice" in your email
+    2. Check **Spam**, **Promotions**, and **Updates** folders
+    3. Mark as "Not Spam" and add billing@applytrack.ai to contacts
+  </Accordion>
+
+  <Accordion title="Download from dashboard">
+    All invoices are available in your account:
+
+    1. Go to **Settings → Billing → Invoice History**
+    2. Click the invoice you need
+    3. Download as PDF
+
+    Invoices are retained for 7 years for tax purposes.
+  </Accordion>
+
+  <Accordion title="Update billing email">
+    If your billing email differs from your account email:
+
+    1. Go to **Settings → Billing**
+    2. Update **Invoice Email Address**
+    3. Future invoices will be sent to the new address
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Still Need Help?
+
+<CardGroup cols={2}>
+  <Card title="Contact Support" icon="headset" href="/resources/contact">
+    Reach our support team via email or live chat (Premium users). Average response time: 24-48 hours (12 hours for Premium).
+  </Card>
+  
+  <Card title="FAQ" icon="circle-question" href="/resources/faq">
+    Browse frequently asked questions about features, pricing, data security, and more.
+  </Card>
+  
+  <Card title="Community Forum" icon="comments" href="https://discord.gg/applytrack">
+    Join our Discord community to get help from other ApplyTrack users and share feedback.
+  </Card>
+  
+  <Card title="Status Page" icon="signal" href="https://status.applytrack.ai">
+    Check real-time system status and subscribe to incident notifications.
+  </Card>
+</CardGroup>
+
+---
+
+<Warning>
+  **Emergency Support**: If you're experiencing a critical issue preventing access to your account or data loss, email **urgent@applytrack.ai** with "URGENT" in the subject line. Critical issues are prioritized and addressed within 6 hours.
+</Warning>

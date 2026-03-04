@@ -1,0 +1,352 @@
+---
+title: 'Interviews'
+description: 'Manage interview schedules and prepare with AI-powered assistance'
+---
+
+# Interviews
+
+The Interviews section helps you prepare for, schedule, and track all your interview rounds. Access AI-powered preparation tools and keep all interview-related information in one organized location.
+
+## Overview
+
+Stay on top of your interview schedule with:
+
+- **12 Total Interviews** tracked in the system
+- **3 Scheduled This Week** - upcoming interview rounds
+- Real-time status updates with countdown timers
+- AI-powered preparation recommendations
+
+## Upcoming Interviews
+
+View all scheduled interviews with detailed timing and status information:
+
+<CardGroup cols={2}>
+  <Card title="Stripe - Culture Fit" icon="calendar">
+    **Today, 2:30 PM**
+    
+    <Warning>Starts in 1h - Live status indicator</Warning>
+    
+    **Interview Type**: Culture Fit
+    
+    **Preparation Status**: Ready
+    
+    **Action**: Prepare with AI
+  </Card>
+  
+  <Card title="AirBnB - Technical Interview" icon="code">
+    **Tomorrow, 10:00 AM**
+    
+    <Info>Prepare Now - Recommended action</Info>
+    
+    **Interview Type**: Technical Interview
+    
+    **Preparation Status**: In Progress
+    
+    **Action**: Prepare with AI
+  </Card>
+</CardGroup>
+
+## Interview Card Features
+
+Each interview card displays comprehensive information:
+
+### Visual Status Indicators
+
+```tsx
+Status Badge
+  ├─ "Starts in 1h" - Red pulsing dot with red text
+  ├─ "Prepare Now" - Red pulsing dot with red text
+  └─ Animated ping effect for urgency
+
+Card Structure
+  ├─ Company name (bold, black)
+  ├─ Interview type and date (gray text)
+  ├─ Calendar icon (top right corner)
+  └─ Prepare with AI button (full width)
+```
+
+### Interview Types
+
+ApplyTrack tracks various interview formats:
+
+- **Culture Fit** - Behavioral and culture alignment discussions
+- **Technical Interview** - Coding challenges and technical assessments
+- **System Design** - Architecture and design problem-solving
+- **Final Round** - Executive interviews and team meetings
+- **HR Screening** - Initial recruiter conversations
+
+## AI Preparation Tools
+
+Click "Prepare with AI" to access intelligent preparation assistance:
+
+<Accordion title="Company Research">
+  AI-generated insights about:
+  - Company mission and values
+  - Recent news and developments
+  - Product portfolio analysis
+  - Company culture and work environment
+</Accordion>
+
+<Accordion title="Question Preparation">
+  Personalized practice questions:
+  - Common interview questions for the role
+  - Company-specific scenarios
+  - Technical problem sets
+  - Behavioral question frameworks (STAR method)
+</Accordion>
+
+<Accordion title="Role Analysis">
+  Deep dive into the position:
+  - Key responsibilities breakdown
+  - Required technical skills
+  - Team structure insights
+  - Growth opportunities
+</Accordion>
+
+<Accordion title="Mock Interview">
+  Practice with AI interviewer:
+  - Real-time question and answer
+  - Performance feedback
+  - Answer improvement suggestions
+  - Confidence building exercises
+</Accordion>
+
+## Interview Timeline
+
+Track the complete interview process:
+
+<Steps>
+  <Step title="HR Screening">
+    Initial conversation with recruiter
+    
+    **Duration**: 30 minutes
+    
+    **Focus**: Background, experience, salary expectations
+  </Step>
+  
+  <Step title="Technical Round">
+    First technical assessment
+    
+    **Duration**: 60-90 minutes
+    
+    **Focus**: Coding challenges, problem-solving
+  </Step>
+  
+  <Step title="System Design">
+    Architecture and design interview
+    
+    **Duration**: 60 minutes
+    
+    **Focus**: Scalability, trade-offs, best practices
+  </Step>
+  
+  <Step title="Culture Fit">
+    Behavioral and team fit assessment
+    
+    **Duration**: 45 minutes
+    
+    **Focus**: Values alignment, working style, team dynamics
+  </Step>
+  
+  <Step title="Final Round">
+    Executive or panel interview
+    
+    **Duration**: 30-60 minutes
+    
+    **Focus**: Vision alignment, leadership qualities
+  </Step>
+</Steps>
+
+## Interview Details View
+
+Click any interview card to access detailed information:
+
+<Tabs>
+  <Tab title="Overview">
+    - Interview date and time
+    - Interview type and format
+    - Interviewer names and roles
+    - Meeting link (Zoom, Google Meet, etc.)
+    - Location (if in-person)
+    - Duration
+  </Tab>
+  
+  <Tab title="Preparation">
+    - AI-generated prep materials
+    - Company research notes
+    - Practice questions
+    - Technical concepts to review
+    - Past interview experiences (aggregated)
+  </Tab>
+  
+  <Tab title="Notes">
+    - Pre-interview preparation notes
+    - During-interview observations
+    - Post-interview reflections
+    - Follow-up action items
+    - Questions to ask interviewers
+  </Tab>
+  
+  <Tab title="Documents">
+    - Resume version submitted
+    - Portfolio pieces to showcase
+    - Technical assessments
+    - Reference materials
+  </Tab>
+</Tabs>
+
+## Real-Time Status Updates
+
+Interviews display dynamic status messages:
+
+| Status | Display | Visual Indicator |
+|--------|---------|------------------|
+| **Starts in 1h** | Red text, uppercase | Pulsing red dot (animated) |
+| **Prepare Now** | Red text, uppercase | Pulsing red dot (animated) |
+| **Tomorrow** | Gray text | Calendar icon |
+| **This Week** | Blue text | Clock icon |
+| **Completed** | Green text | Check circle icon |
+
+## Quick Actions Panel
+
+Access interview-related tools from the dashboard:
+
+### Available Actions
+
+<CardGroup cols={2}>
+  <Card title="Schedule Interview" icon="calendar-plus">
+    Add new interview to your calendar
+  </Card>
+  
+  <Card title="Interview Prep" icon="zap">
+    Access AI-powered preparation tools
+  </Card>
+  
+  <Card title="Practice Sessions" icon="play">
+    Start mock interview practice
+  </Card>
+  
+  <Card title="Review Notes" icon="file-text">
+    Access past interview notes
+  </Card>
+</CardGroup>
+
+## Interview Preparation Button
+
+The "Prepare with AI" button provides:
+
+### Default State
+```
+Background: zinc-50
+Text: zinc-500 (uppercase, font-black)
+Border Radius: 12px (rounded-xl)
+Padding: 12px vertical
+Full Width: Yes
+```
+
+### Hover State
+```
+Background: #1C4ED8 (primary blue)
+Text: white
+Transition: Smooth color change
+Scale: Slight elevation effect
+```
+
+## Calendar Integration
+
+Interviews automatically sync with your calendar:
+
+<Info>
+  **Calendar Features**
+  - Automatic event creation
+  - Meeting link inclusion
+  - Pre-interview reminders (1 day, 1 hour, 15 minutes)
+  - Time zone handling
+  - Rescheduling notifications
+</Info>
+
+## Interview Insights
+
+Track your interview performance over time:
+
+### Success Metrics
+
+- **Conversion Rate**: Percentage of interviews leading to next rounds
+- **Average Interview Count**: Number of rounds per company
+- **Preparation Time**: Average prep time per interview
+- **Feedback Scores**: Self-assessed performance ratings
+
+### Performance Analytics
+
+```
+Interview Success Rate
+  ├─ Technical Interviews: 75%
+  ├─ Culture Fit: 85%
+  ├─ System Design: 70%
+  └─ Final Round: 60%
+```
+
+## Post-Interview Follow-Up
+
+Manage post-interview actions:
+
+<Steps>
+  <Step title="Add Interview Notes">
+    Document key discussion points and impressions immediately after the interview
+  </Step>
+  
+  <Step title="Send Thank You Email">
+    AI-assisted thank you note generation with personalized content
+  </Step>
+  
+  <Step title="Update Status">
+    Mark interview as completed and add outcome when available
+  </Step>
+  
+  <Step title="Schedule Follow-Up">
+    Set reminder to check on interview status if no response
+  </Step>
+</Steps>
+
+## Design Specifications
+
+### Interview Card Layout
+
+```
+Card Container
+  Border: 1px solid zinc-100
+  Background: white
+  Padding: 24px (1.5rem)
+  Border Radius: 24px (rounded-3xl)
+  Shadow: Subtle shadow-sm
+  Hover: Border changes to blue (#1C4ED8)
+```
+
+### Typography
+
+- **Company Name**: text-base, font-black, text-black
+- **Interview Details**: text-[11px], font-bold, text-zinc-400
+- **Status Badge**: text-[9px], font-black, uppercase, text-red-500
+- **Button Text**: text-[10px], font-black, uppercase
+
+### Animation
+
+```css
+Pulsing Dot Animation
+  ├─ Base: 6px diameter, red background
+  ├─ Animation: ping (continuous pulse)
+  └─ Purpose: Urgent attention indicator
+```
+
+<Note>
+  All interview times are displayed in your local timezone and automatically sync with your calendar application.
+</Note>
+
+## Navigation Access
+
+Access the Interviews page from:
+
+- **Sidebar Navigation**: Inventory > Interviews
+- **Dashboard Widget**: "Upcoming Rounds" section
+- **Quick Command**: Interview Prep button
+- **Application Details**: Interview tab within specific applications

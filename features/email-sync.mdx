@@ -1,0 +1,345 @@
+---
+title: 'Email Integration'
+description: 'Automatically track recruiter responses and interview updates through secure Gmail and Outlook synchronization'
+icon: 'mail'
+---
+
+## Email Synchronization Overview
+
+ApplyTrack's email sync feature automatically tracks every recruiter interaction by monitoring your inbox for application-related messages. Connect Gmail or Outlook with secure OAuth, and watch your application statuses update in real-time.
+
+<CardGroup cols={2}>
+  <Card title="Secure OAuth" icon="shield">
+    Bank-grade authentication with Gmail and Outlook APIs
+  </Card>
+  <Card title="Auto-Update Status" icon="refresh-cw">
+    Application statuses change automatically when emails arrive
+  </Card>
+  <Card title="Thread Tracking" icon="mail">
+    Monitor every message in recruiter conversations
+  </Card>
+  <Card title="24 Active Threads" icon="activity">
+    Real-time sync status shown in dashboard header
+  </Card>
+</CardGroup>
+
+## Supported Email Providers
+
+<Tabs>
+  <Tab title="Gmail">
+    
+    ### Google OAuth Integration
+    
+    Connect your Gmail account through Google's official OAuth 2.0 flow:
+    
+    1. Click **"Sync Mail"** in Quick Commands or Settings
+    2. Choose **Gmail** as your provider
+    3. Authorize ApplyTrack to read emails (read-only access)
+    4. Automatic synchronization begins immediately
+    
+    <Warning>
+      ApplyTrack only reads emails related to job applications. We filter for keywords like "interview," "application," "offer," and recruiter domains. All other emails are ignored.
+    </Warning>
+    
+    ### What We Track
+    
+    - **Recruiter emails**: Messages from company domains and recruiting platforms
+    - **ATS notifications**: Updates from Greenhouse, Lever, Workday, etc.
+    - **Interview invitations**: Calendar invites and scheduling links
+    - **Status changes**: Rejection notices, next round invitations
+    - **Offer letters**: Compensation and benefits information
+    
+  </Tab>
+  <Tab title="Outlook">
+    
+    ### Microsoft OAuth Integration
+    
+    Connect your Outlook or Microsoft 365 account:
+    
+    1. Click **"Sync Mail"** in Quick Commands or Settings
+    2. Choose **Outlook** as your provider
+    3. Sign in with your Microsoft account
+    4. Grant read permissions to ApplyTrack
+    5. Synchronization starts within 30 seconds
+    
+    <Info>
+      Works with Outlook.com, Hotmail, and Microsoft 365 work accounts.
+    </Info>
+    
+    ### Enterprise Compatibility
+    
+    For companies using Microsoft 365 with conditional access policies:
+    - ApplyTrack is a registered Microsoft partner application
+    - Complies with enterprise security requirements
+    - IT administrators can whitelist our app ID: `[contact support for ID]`
+    
+  </Tab>
+</Tabs>
+
+## How Email Tracking Works
+
+<Steps>
+  <Step title="OAuth Connection">
+    
+    You authorize ApplyTrack using secure OAuth 2.0. We **never** see your password.
+    
+    ```typescript
+    // Email sync connection flow
+    {
+      "provider": "gmail",
+      "scopes": ["gmail.readonly"],
+      "encryption": "AES-256",
+      "access": "read-only"
+    }
+    ```
+    
+  </Step>
+  <Step title="Intelligent Filtering">
+    
+    Our AI scans incoming emails for job-related keywords and sender patterns:
+    
+    - **Recruiter domains**: @greenhouse.io, @lever.co, @company.com/careers
+    - **Keywords**: interview, application, offer, screening, next steps
+    - **Thread context**: Replies in existing application conversations
+    - **Calendar invites**: Meeting requests with interview-related subjects
+    
+    Non-job-related emails are immediately discarded and never stored.
+    
+  </Step>
+  <Step title="Application Matching">
+    
+    Emails are matched to applications in your dashboard using:
+    
+    - Company name extraction from sender domain or email body
+    - Job title matching from subject line or content
+    - Previous email thread history
+    - ATS system identifiers
+    
+    If no match is found, ApplyTrack creates a new application entry (Premium/Platinum only).
+    
+  </Step>
+  <Step title="Status Update">
+    
+    Application status automatically changes based on email content:
+    
+    | Email Type | Status Update |
+    |------------|---------------|
+    | "We'd like to schedule an interview..." | Applied → **Interviewing** |
+    | "Moving forward to technical round..." | Interviewing → **Technical Round** |
+    | "We're pleased to extend an offer..." | Interviewing → **Offer Extended** |
+    | "We've decided to move forward with other candidates..." | Any → **Rejected** |
+    | "Your application has been received..." | No change (confirmation only) |
+    
+  </Step>
+  <Step title="Dashboard Notification">
+    
+    You receive a real-time notification:
+    
+    - Bell icon in header shows red badge
+    - Application card updates with new status and timestamp
+    - Recent activity feed shows "2h ago" update
+    - AI analyzes the email for next steps and recommendations
+    
+  </Step>
+</Steps>
+
+## Real-Time Sync Status
+
+The dashboard header displays your active sync status:
+
+```typescript
+// From Header.tsx source code
+<div className="flex items-center gap-3">
+  <div className="flex -space-x-2">
+    {[1, 2, 3].map((i) => (
+      <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-zinc-200" />
+    ))}
+  </div>
+  <span>Syncing 24 Active threads</span>
+</div>
+```
+
+<Info>
+  The number represents active email conversations related to your applications that are being monitored for updates.
+</Info>
+
+## Privacy & Permissions
+
+### What We Access
+
+<Accordion title="Read-Only Email Access">
+  
+  ApplyTrack requests **read-only** permission to your email. We cannot:
+  
+  - Send emails from your account
+  - Delete or modify existing emails
+  - Access contacts or calendar (unless separately authorized)
+  - Read emails unrelated to job applications
+  
+  Our OAuth scopes:
+  - **Gmail**: `gmail.readonly` only
+  - **Outlook**: `Mail.Read` only
+
+</Accordion>
+
+<Accordion title="Data Storage & Encryption">
+  
+  Email content is processed and stored with maximum security:
+  
+  - **In transit**: TLS 1.3 encryption
+  - **At rest**: AES-256 encryption
+  - **Retention**: Email metadata stored indefinitely, full email content purged after 90 days
+  - **Deletion**: Revoke access anytime in Settings → Integrations
+  
+  <Warning>
+    When you disconnect email sync, all stored email data is permanently deleted within 24 hours.
+  </Warning>
+
+</Accordion>
+
+<Accordion title="Locally-Hosted AI Models">
+  
+  For text processing and sentiment analysis, ApplyTrack uses:
+  
+  - **On-device models**: Run on your device when possible
+  - **Private cloud**: Hosted on our secure infrastructure (not third-party AI APIs)
+  - **No training**: Your emails are never used to train models
+  - **GDPR compliant**: Full data portability and right to deletion
+
+</Accordion>
+
+## Email Sync Features by Plan
+
+<Tabs>
+  <Tab title="Free Plan">
+    
+    Email sync is **not available** on the free plan.
+    
+    Free plan includes:
+    - 5 applications per month
+    - Manual status updates only
+    - No automatic email tracking
+    
+    <Card title="Upgrade to Premium" icon="arrow-up">
+      Unlock email sync for $9/month with unlimited tracking
+    </Card>
+    
+  </Tab>
+  <Tab title="Premium - $9/mo">
+    
+    **Deep Gmail/Outlook Sync** included:
+    
+    - ✅ Unlimited email tracking
+    - ✅ Automatic status updates
+    - ✅ Thread monitoring (up to 50 active threads)
+    - ✅ Real-time notifications
+    - ✅ Basic AI email analysis
+    - ✅ Interview scheduling detection
+    
+  </Tab>
+  <Tab title="Platinum - $19/mo">
+    
+    Everything in Premium plus:
+    
+    - ✅ **Unlimited thread monitoring**
+    - ✅ **Advanced AI email insights**: Sentiment analysis, urgency detection
+    - ✅ **Auto-reply suggestions**: AI-generated response templates
+    - ✅ **Email performance metrics**: Response time tracking, follow-up reminders
+    - ✅ **Priority sync**: Real-time updates within 30 seconds
+    
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Emails not syncing">
+    
+    If emails aren't appearing in your dashboard:
+    
+    1. Check that email sync is enabled in Settings → Integrations
+    2. Verify the "Syncing X Active threads" indicator in dashboard header
+    3. Click **"Sync Mail"** in Quick Commands to force refresh
+    4. Ensure emails are from recognized recruiter domains or ATS systems
+    5. Check that applications exist in your dashboard for matching
+    
+    <Warning>
+      If you're on the Free plan, email sync is not available. Upgrade to Premium to enable.
+    </Warning>
+    
+  </Accordion>
+  
+  <Accordion title="Wrong application matched">
+    
+    If an email updates the wrong application:
+    
+    1. Click the three-dot menu on the application card
+    2. Select **"View Email Thread"**
+    3. Click **"Unmatch Email"** to remove the incorrect association
+    4. Manually update the correct application status
+    
+    Our AI improves matching accuracy over time as it learns your application patterns.
+    
+  </Accordion>
+  
+  <Accordion title="Disconnect email sync">
+    
+    To revoke ApplyTrack's access to your email:
+    
+    1. Go to Settings → Integrations
+    2. Find your connected email provider
+    3. Click **"Disconnect"**
+    4. Confirm deletion of all stored email data
+    
+    You can also revoke access directly from your email provider:
+    - **Gmail**: Google Account → Security → Third-party access
+    - **Outlook**: Microsoft Account → Privacy → Apps & services
+    
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Features (Platinum)
+
+### AI Email Insights
+
+Platinum subscribers get advanced AI analysis on every recruiter email:
+
+<CardGroup cols={2}>
+  <Card title="Sentiment Analysis" icon="smile">
+    Detect positive, neutral, or negative tone in recruiter responses
+  </Card>
+  <Card title="Urgency Detection" icon="clock">
+    Identify time-sensitive requests requiring immediate action
+  </Card>
+  <Card title="Next Steps Extraction" icon="list">
+    Automatically parse action items and deadlines from emails
+  </Card>
+  <Card title="Response Templates" icon="message-square">
+    AI-generated reply suggestions based on email context
+  </Card>
+</CardGroup>
+
+### Auto-Reply Suggestions
+
+When you receive a recruiter email, Platinum users see suggested responses:
+
+```
+Email: "Are you available for a 30-minute call this Thursday at 2pm?"
+
+Suggested Reply:
+"Thank you for reaching out! I'm very interested in this opportunity. 
+Thursday at 2pm works perfectly for me. I look forward to our conversation."
+```
+
+Click **"Use Template"** to copy to clipboard or send directly (if email sending is enabled).
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="AI Insights" icon="sparkles" href="/features/ai-insights">
+    Learn how AI analyzes your applications for strategic recommendations
+  </Card>
+  <Card title="Analytics" icon="line-chart" href="/features/analytics">
+    Track response rates and email performance metrics
+  </Card>
+</CardGroup>
